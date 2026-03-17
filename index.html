@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The NiceHR Group — Revenue Cycle Management</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
 
   :root {
     --black: #000000;
@@ -17,7 +17,7 @@
     --mid-2: #555555;
     --light: #999999;
     --lighter: #cccccc;
-    --off-white: #f5f5f5;
+    --off-white: #e8e8e8;
     --white: #ffffff;
     --accent: #c8a97e;
     --accent-dim: rgba(200,169,126,0.15);
@@ -51,7 +51,7 @@
   }
 
   .cover-logo {
-    height: 100px;
+    height: 140px;
     filter: brightness(0) invert(1);
     opacity: 0.9;
   }
@@ -69,10 +69,10 @@
   }
 
   .cover-center h1 {
-    font-size: clamp(32px, 3.8vw, 64px);
+    font-size: clamp(28px, 3.2vw, 52px);
     font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -2px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
     color: var(--white);
     margin-bottom: 40px;
     white-space: nowrap;
@@ -84,16 +84,17 @@
   }
 
   .cover-center .lead {
-    font-size: clamp(16px, 1.5vw, 24px);
+    font-size: clamp(15px, 1.3vw, 20px);
     font-weight: 400;
     line-height: 1.7;
-    color: var(--light);
+    color: var(--lighter);
     max-width: 100%;
   }
 
   .cover-bottom {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
     padding-top: 48px;
     border-top: 1px solid var(--dark-3);
   }
@@ -133,7 +134,7 @@
   }
 
   .page-nav img {
-    height: 64px;
+    height: 80px;
     filter: brightness(0) invert(1);
     opacity: 0.6;
   }
@@ -169,16 +170,22 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.7;
-    color: var(--mid-2);
+    color: var(--lighter);
     max-width: 500px;
     margin-bottom: 56px;
   }
 
   /* ─── TIER TABLE ─── */
+  .tier-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+  }
+
   .tier-table {
     width: 100%;
     border-collapse: collapse;
-    flex: 1;
+    min-width: 700px;
   }
 
   .tier-table thead th {
@@ -308,7 +315,7 @@
   .tier-card .card-items li {
     font-size: 13px;
     font-weight: 400;
-    color: var(--light);
+    color: var(--lighter);
     padding: 8px 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     line-height: 1.5;
@@ -323,7 +330,7 @@
     padding-top: 24px;
     border-top: 1px solid var(--dark-3);
     font-size: 12px;
-    color: var(--light);
+    color: var(--lighter);
     line-height: 1.6;
   }
 
@@ -356,7 +363,7 @@
 
   .service-cell li {
     font-size: 12px;
-    color: var(--light);
+    color: var(--lighter);
     padding: 4px 0;
     line-height: 1.5;
   }
@@ -373,37 +380,40 @@
 
   .onboard-step {
     background: var(--near-black);
-    padding: 24px 20px;
+    padding: 28px 24px;
   }
 
   .onboard-step .step-num {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 200;
     color: var(--accent);
-    opacity: 0.4;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .onboard-step h4 {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--white);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .onboard-step p {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--lighter);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .onboard-step .duration {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-top: 12px;
+    color: var(--white);
+    margin-top: 16px;
+    background: var(--dark-3);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
   }
 
   /* ─── COMPLIANCE STRIP ─── */
@@ -413,6 +423,7 @@
     padding: 24px 0;
     border-top: 1px solid var(--dark-3);
     margin-top: auto;
+    flex-wrap: wrap;
   }
 
   .compliance span {
@@ -420,7 +431,7 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--mid);
+    color: var(--light);
   }
 
   /* ─── FOOTER ─── */
@@ -434,7 +445,7 @@
   }
 
   .page-footer img {
-    height: 56px;
+    height: 80px;
     filter: brightness(0) invert(1);
     opacity: 0.6;
   }
@@ -442,7 +453,7 @@
   .page-footer .contact {
     text-align: right;
     font-size: 12px;
-    color: var(--mid);
+    color: var(--light);
     line-height: 1.8;
   }
 
@@ -451,56 +462,106 @@
     font-weight: 500;
   }
 
-  /* ─── TABLET (≤1024px) ─── */
+  /* ═══════════════════════════════════════════════════════ */
+  /* RESPONSIVE: TABLET (≤1024px)                          */
+  /* ═══════════════════════════════════════════════════════ */
   @media (max-width: 1024px) {
     .cover { padding: 36px 40px; }
-    .cover-center h1 { font-size: 42px; }
-    .cover-bottom { flex-wrap: wrap; gap: 32px; }
-    .page { padding: 36px 40px; }
+    .cover-logo { height: 110px; }
+    .cover-center h1 { font-size: 36px; white-space: normal; }
+    .cover-center .lead { font-size: 16px; }
+    .cover-bottom { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .cover-stat .number { font-size: 36px; }
 
-    .tier-table thead th { padding: 12px 14px; }
-    .tier-table thead th .tier-name { font-size: 15px; }
-    .tier-table tbody td { padding: 12px 14px; font-size: 12px; }
-    .tier-table thead th:first-child { width: 180px; }
+    .page { padding: 36px 40px; }
+    .page-nav img { height: 64px; }
+
+    .section-title { font-size: 28px; }
 
     .tier-cards { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .onboarding { grid-template-columns: repeat(3, 1fr); }
+
+    .page-footer img { height: 64px; }
   }
 
-  /* ─── MOBILE (≤640px) ─── */
+  /* ═══════════════════════════════════════════════════════ */
+  /* RESPONSIVE: MOBILE (≤640px)                           */
+  /* ═══════════════════════════════════════════════════════ */
   @media (max-width: 640px) {
-    .cover { padding: 28px 24px; }
-    .cover-logo { height: 48px; }
-    .cover-center h1 { font-size: 28px; letter-spacing: -1px; }
-    .cover-center .lead { font-size: 15px; }
-    .cover-bottom { flex-wrap: wrap; gap: 20px; }
+    .cover { padding: 28px 20px; min-height: auto; }
+    .cover-logo { height: 80px; }
+    .cover-center h1 {
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      white-space: normal;
+      line-height: 1.2;
+    }
+    .cover-center .lead { font-size: 14px; line-height: 1.6; }
+    .cover-bottom { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .cover-stat .number { font-size: 28px; }
     .cover-stat .unit { font-size: 9px; letter-spacing: 1.5px; }
 
-    .page { padding: 24px 20px; }
+    .page { padding: 24px 20px; min-height: auto; }
     .page-nav { margin-bottom: 32px; }
-    .page-nav img { height: 36px; }
-    .section-title { font-size: 26px; }
-    .section-sub { font-size: 14px; margin-bottom: 32px; }
+    .page-nav img { height: 48px; }
+    .section-title { font-size: 22px; max-width: 100%; }
+    .section-sub { font-size: 13px; margin-bottom: 32px; max-width: 100%; }
 
-    /* Tier table: horizontal scroll */
+    /* Tier table: horizontal scroll with hint */
     .tier-table-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
       margin: 0 -20px;
       padding: 0 20px;
+      position: relative;
     }
-    .tier-table { min-width: 640px; }
+    .tier-table-wrap::after {
+      content: '→ scroll';
+      position: absolute;
+      top: 8px;
+      right: 24px;
+      font-size: 10px;
+      color: var(--mid-2);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+    .tier-table { min-width: 700px; }
 
+    /* Tier cards stack vertically */
     .tier-cards { grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: 1fr; }
-    .onboarding { grid-template-columns: 1fr; }
+    .tier-card { padding: 28px 24px; }
+    .tier-card .card-response { font-size: 24px; margin-bottom: 20px; }
 
-    .compliance { flex-wrap: wrap; gap: 16px 24px; }
+    /* Services stack vertically */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* Onboarding: 1 column on mobile */
+    .onboarding { grid-template-columns: 1fr; }
+    .onboard-step { padding: 24px 20px; }
+    .onboard-step .step-num { font-size: 28px; }
+
+    .compliance { gap: 12px 20px; }
+    .compliance span { font-size: 9px; letter-spacing: 1.5px; }
 
     .page-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .page-footer .contact { text-align: left; }
+    .page-footer img { height: 48px; }
+    .page-footer .contact { text-align: left; font-size: 11px; }
+  }
+
+  /* ═══════════════════════════════════════════════════════ */
+  /* RESPONSIVE: SMALL MOBILE (≤400px)                     */
+  /* ═══════════════════════════════════════════════════════ */
+  @media (max-width: 400px) {
+    .cover { padding: 20px 16px; }
+    .cover-logo { height: 60px; }
+    .cover-center h1 { font-size: 20px; }
+    .cover-center .lead { font-size: 13px; }
+    .cover-bottom { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cover-stat .number { font-size: 24px; }
+
+    .page { padding: 20px 16px; }
+    .page-nav img { height: 40px; }
+    .section-title { font-size: 20px; }
   }
 
   /* ─── PRINT ─── */
@@ -508,6 +569,7 @@
     body { background: white; color: black; }
     .cover { background: #111; color: white; }
     .page { padding: 36px 48px; }
+    .cover-logo, .page-nav img, .page-footer img { filter: none; opacity: 1; }
   }
 </style>
 </head>
@@ -655,7 +717,7 @@
 
   <div class="section-label">Tier Detail</div>
   <div class="section-title">The right level for your operation.</div>
-  <div class="section-sub"></div>
+  <div class="section-sub">Each tier builds on the previous. Select based on response requirements and operational complexity.</div>
 
   <div class="tier-cards">
     <div class="tier-card">
@@ -796,19 +858,19 @@
       <div class="step-num">01</div>
       <h4>Pre-Contract</h4>
       <p>Requirements analysis. Process assessment. Engagement scope.</p>
-      <div class="duration">Week 1 &ndash; 3</div>
+      <div class="duration">Week 1 – 3</div>
     </div>
     <div class="onboard-step">
       <div class="step-num">02</div>
       <h4>Systems</h4>
       <p>Clinical access. Billing system implementation. Clearinghouse config.</p>
-      <div class="duration">Week 2 &ndash; 5</div>
+      <div class="duration">Week 2 – 5</div>
     </div>
     <div class="onboard-step">
       <div class="step-num">03</div>
       <h4>Process Design</h4>
       <p>AS-IS / TO-BE mapping. Responsibility matrix. TATs & KPIs.</p>
-      <div class="duration">Week 4 &ndash; 5</div>
+      <div class="duration">Week 4 – 5</div>
     </div>
     <div class="onboard-step">
       <div class="step-num">04</div>
