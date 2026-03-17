@@ -445,21 +445,22 @@
   }
 
   .page-footer img {
-    height: 80px;
+    height: 100px;
     filter: brightness(0) invert(1);
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   .page-footer .contact {
     text-align: right;
-    font-size: 12px;
-    color: var(--light);
-    line-height: 1.8;
+    font-size: 14px;
+    color: var(--lighter);
+    line-height: 1.9;
   }
 
   .page-footer .contact strong {
-    color: var(--lighter);
-    font-weight: 500;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 16px;
   }
 
   /* ═══════════════════════════════════════════════════════ */
@@ -482,7 +483,9 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .onboarding { grid-template-columns: repeat(3, 1fr); }
 
-    .page-footer img { height: 64px; }
+    .page-footer img { height: 80px; }
+    .page-footer .contact { font-size: 13px; }
+    .page-footer .contact strong { font-size: 15px; }
   }
 
   /* ═══════════════════════════════════════════════════════ */
@@ -515,15 +518,19 @@
       position: relative;
     }
     .tier-table-wrap::after {
-      content: '→ scroll';
-      position: absolute;
-      top: 8px;
-      right: 24px;
-      font-size: 10px;
-      color: var(--mid-2);
-      letter-spacing: 1px;
+      content: 'SWIPE →';
+      position: sticky;
+      top: 0;
+      right: 0;
+      float: right;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
       text-transform: uppercase;
       pointer-events: none;
+      background: linear-gradient(90deg, transparent, var(--near-black) 30%);
+      padding: 8px 4px 8px 32px;
     }
     .tier-table { min-width: 700px; }
 
@@ -543,9 +550,10 @@
     .compliance { gap: 12px 20px; }
     .compliance span { font-size: 9px; letter-spacing: 1.5px; }
 
-    .page-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .page-footer img { height: 48px; }
-    .page-footer .contact { text-align: left; font-size: 11px; }
+    .page-footer { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .page-footer img { height: 60px; }
+    .page-footer .contact { text-align: left; font-size: 13px; }
+    .page-footer .contact strong { font-size: 14px; }
   }
 
   /* ═══════════════════════════════════════════════════════ */
