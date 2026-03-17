@@ -189,8 +189,8 @@
     table-layout: fixed;
   }
 
-  .tier-table colgroup .col-label { width: 28%; }
-  .tier-table colgroup .col-tier { width: 18%; }
+  .tier-table colgroup .col-label { width: 200px; }
+  .tier-table colgroup .col-tier { width: calc((100% - 200px) / 4); }
 
   .tier-table thead th {
     text-align: left;
@@ -201,7 +201,7 @@
     text-transform: uppercase;
     color: var(--mid-2);
     border-bottom: 1px solid var(--dark-3);
-    vertical-align: bottom;
+    vertical-align: top;
   }
 
   .tier-table thead th:first-child {
