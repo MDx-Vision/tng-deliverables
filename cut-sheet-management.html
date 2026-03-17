@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The NiceHR Group — Management Services Organization</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --black: #000000;
+    --near-black: #0a0a0a;
+    --dark: #111111;
+    --dark-2: #1a1a1a;
+    --dark-3: #222222;
+    --mid: #333333;
+    --mid-2: #555555;
+    --light: #999999;
+    --lighter: #cccccc;
+    --off-white: #e8e8e8;
+    --white: #ffffff;
+    --accent: #c8a97e;
+    --accent-dim: rgba(200,169,126,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--near-black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .sheet {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 56px 28px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .header-logo {
+    height: 60px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  .header-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--light);
+    text-align: right;
+  }
+
+  .header-label span {
+    display: block;
+    margin-top: 4px;
+    color: var(--mid-2);
+    letter-spacing: 2px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    margin-bottom: 20px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 2.8vw, 36px);
+    font-weight: 200;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero .lead {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--lighter);
+    max-width: 680px;
+  }
+
+  /* ─── STATS ROW ─── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--dark-3);
+    border-bottom: 1px solid var(--dark-3);
+    margin-bottom: 24px;
+  }
+
+  .stat-val {
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 200;
+    letter-spacing: -1px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light);
+    line-height: 1.4;
+  }
+
+  /* ─── THREE COLUMN ─── */
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 20px;
+  }
+
+  .col-eyebrow {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .service-list {
+    list-style: none;
+  }
+
+  .service-list li {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--off-white);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--dark-2);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .service-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .service-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* ─── VALUE STRIP ─── */
+  .value-strip {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .value-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .value-headline {
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .value-headline em {
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .value-right {
+    text-align: right;
+  }
+
+  .value-right .cta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .value-right .cta-detail {
+    font-size: 13px;
+    color: var(--light);
+  }
+
+  /* ─── COMPLIANCE ROW ─── */
+  .compliance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding: 14px 0;
+    border-top: 1px solid var(--dark-3);
+    margin-bottom: 14px;
+  }
+
+  .compliance span {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid-2);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 14px;
+    border-top: 1px solid var(--dark-3);
+  }
+
+  .footer-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+  }
+
+  .footer-contact {
+    text-align: right;
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.7;
+  }
+
+  .footer-contact strong {
+    color: var(--off-white);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .sheet { padding: 28px 20px; }
+    .header-logo { height: 48px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .three-col { grid-template-columns: 1fr; gap: 24px; }
+    .value-strip {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .value-right { text-align: left; }
+    .footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-contact { text-align: left; }
+  }
+
+  @media (max-width: 480px) {
+    .sheet { padding: 20px 16px; }
+    .header-logo { height: 40px; }
+    .hero h1 { font-size: 22px; }
+    .stat-val { font-size: 24px; }
+    .service-list li { font-size: 12px; }
+    .value-strip { padding: 16px 16px; }
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .sheet { padding: 36px 48px; }
+    .header-logo, .footer-logo { filter: none; opacity: 1; }
+    .value-strip { background: #f5f5f5; border-color: #ddd; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="tng-logo-black.svg" alt="The NiceHR Group" class="header-logo">
+    <div class="header-label">
+      Management Group
+      <span>Cut Sheet</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Management Services Organization</div>
+    <h1>One entity. One Tax ID.<br><em>One hundred physicians.</em></h1>
+    <p class="lead">We consolidate independent practices into a unified MSO — centralizing billing, credentialing, compliance, and operations under a single structure. Physicians keep clinical autonomy. We handle everything else.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div>
+      <div class="stat-val">640+</div>
+      <div class="stat-label">Platform API Endpoints</div>
+    </div>
+    <div>
+      <div class="stat-val">50+</div>
+      <div class="stat-label">Operational Modules</div>
+    </div>
+    <div>
+      <div class="stat-val">99.9%</div>
+      <div class="stat-label">Platform Uptime SLA</div>
+    </div>
+    <div>
+      <div class="stat-val">300+</div>
+      <div class="stat-label">Active Clients</div>
+    </div>
+  </div>
+
+  <!-- THREE COLUMN SERVICES -->
+  <div class="three-col">
+    <div>
+      <div class="col-eyebrow">Operations</div>
+      <ul class="service-list">
+        <li>Single Tax ID consolidation</li>
+        <li>Credentialing & payer enrollment</li>
+        <li>Contract negotiation</li>
+        <li>Compliance & regulatory</li>
+        <li>HR & workforce management</li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-eyebrow">Technology</div>
+      <ul class="service-list">
+        <li>NiceHR enterprise platform</li>
+        <li>EHR implementation & migration</li>
+        <li>Data analytics & dashboards</li>
+        <li>AI-powered intelligence</li>
+        <li>Digital contract management</li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-eyebrow">Financial</div>
+      <ul class="service-list">
+        <li>Full-cycle RCM (3% of collections)</li>
+        <li>Carrier performance reviews</li>
+        <li>Bookkeeping & accounting</li>
+        <li>Revenue optimization</li>
+        <li>Financial reporting & forecasting</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VALUE STRIP -->
+  <div class="value-strip">
+    <div class="value-left">
+      <div class="value-headline">Consolidate. Optimize. Scale.<br>From independent practices to a <em>$1B+ integrated entity.</em></div>
+    </div>
+    <div class="value-right">
+      <div class="cta-label">Get Started</div>
+      <div class="cta-detail">info@thenicehrgroup.com</div>
+      <div class="cta-detail">212-203-3513</div>
+    </div>
+  </div>
+
+  <!-- COMPLIANCE -->
+  <div class="compliance">
+    <span>HIPAA Compliant</span>
+    <span>SOC 1 & SOC 2</span>
+    <span>ISO 27001</span>
+    <span>ISO 9001</span>
+    <span>ISO 27701</span>
+    <span>BBB A+ Rated</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <img src="tng-logo-black.svg" alt="TNG" class="footer-logo">
+    <div class="footer-contact">
+      <strong>The NiceHR Group</strong><br>
+      info@thenicehrgroup.com &nbsp;|&nbsp; 212-203-3513
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
