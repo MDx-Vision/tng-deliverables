@@ -693,26 +693,27 @@
 
   <div class="kpi-row">
     <div class="kpi-cell">
-      <div class="kpi-val">CPT</div>
-      <div class="kpi-label">Reimbursement by Code</div>
+      <div class="kpi-val">&lt;30</div>
+      <div class="kpi-label">Target Days in A/R</div>
     </div>
     <div class="kpi-cell">
-      <div class="kpi-val">A/R</div>
-      <div class="kpi-label">Days in Receivable</div>
+      <div class="kpi-val">95%</div>
+      <div class="kpi-label">Clean Claim Target</div>
     </div>
     <div class="kpi-cell">
-      <div class="kpi-val">%</div>
-      <div class="kpi-label">Clean Claim Rate</div>
+      <div class="kpi-val">&lt;5%</div>
+      <div class="kpi-label">Denial Rate Target</div>
     </div>
     <div class="kpi-cell">
-      <div class="kpi-val">$</div>
-      <div class="kpi-label">Denial Write-Off</div>
+      <div class="kpi-val">96%</div>
+      <div class="kpi-label">Net Collection Target</div>
     </div>
     <div class="kpi-cell">
-      <div class="kpi-val">Δ</div>
-      <div class="kpi-label">Variance vs CMS</div>
+      <div class="kpi-val">148%</div>
+      <div class="kpi-label">Comm. vs Medicare</div>
     </div>
   </div>
+  <p style="font-size: 11px; color: var(--light); margin-top: -40px; margin-bottom: 40px; line-height: 1.5;">Benchmarks: MGMA DataDive, HFMA MAP Keys, Milliman 2025</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -774,58 +775,52 @@
     <thead>
       <tr>
         <th>Carrier</th>
-        <th>Avg Days to Pay</th>
-        <th>Clean Claim Rate</th>
         <th>Denial Rate</th>
-        <th>CPT Variance vs CMS</th>
+        <th>Commercial vs Medicare</th>
         <th>Classification</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>UnitedHealthcare</td>
-        <td>24 days</td>
-        <td>96.2%</td>
-        <td>3.1%</td>
-        <td>+4.2%</td>
+        <td>Kaiser Permanente</td>
+        <td>6%</td>
+        <td>148% of CMS (professional)</td>
         <td><span class="tag tag-green">High</span></td>
+      </tr>
+      <tr>
+        <td>Medicare (Traditional)</td>
+        <td>~5%</td>
+        <td>100% (baseline)</td>
+        <td><span class="tag tag-green">High</span></td>
+      </tr>
+      <tr>
+        <td>UnitedHealthcare</td>
+        <td>19.1%</td>
+        <td>148% of CMS</td>
+        <td><span class="tag tag-yellow">Standard</span></td>
       </tr>
       <tr>
         <td>Aetna</td>
-        <td>31 days</td>
-        <td>93.8%</td>
-        <td>5.4%</td>
-        <td>+1.8%</td>
-        <td><span class="tag tag-green">High</span></td>
-      </tr>
-      <tr>
-        <td>CIGNA</td>
-        <td>47 days</td>
-        <td>89.1%</td>
-        <td>8.7%</td>
-        <td>-2.3%</td>
+        <td>22%</td>
+        <td>148% of CMS</td>
         <td><span class="tag tag-yellow">Standard</span></td>
       </tr>
       <tr>
-        <td>BlueCross BlueShield</td>
-        <td>52 days</td>
-        <td>91.4%</td>
-        <td>6.9%</td>
-        <td>-1.1%</td>
-        <td><span class="tag tag-yellow">Standard</span></td>
+        <td>Elevance (Anthem BCBS)</td>
+        <td>23%</td>
+        <td>148% of CMS</td>
+        <td><span class="tag tag-red">Poor</span></td>
       </tr>
       <tr>
-        <td>Medicaid (State)</td>
-        <td>94 days</td>
-        <td>82.3%</td>
-        <td>14.2%</td>
-        <td>-18.6%</td>
+        <td>BCBS of Alabama</td>
+        <td>35%</td>
+        <td>148% of CMS</td>
         <td><span class="tag tag-red">Poor</span></td>
       </tr>
     </tbody>
   </table>
   </div>
-  <p style="font-size: 11px; color: var(--mid-2); margin-top: 12px; font-style: italic;">Sample data for illustration. Your report reflects your actual claims history.</p>
+  <p style="font-size: 11px; color: var(--light); margin-top: 16px; line-height: 1.6;">Sources: KFF ACA Marketplace Claims Denials 2023 (425M claims, 175 insurers). CMS 2024. Milliman Commercial Reimbursement Benchmarking 2025. Optum 2024 Revenue Cycle Denials Index (124M claims, 1,400 hospitals). Your carrier review reflects your actual claims data against these industry benchmarks.</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ -->
