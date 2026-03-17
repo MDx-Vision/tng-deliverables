@@ -186,11 +186,15 @@
     width: 100%;
     border-collapse: collapse;
     min-width: 700px;
+    table-layout: fixed;
   }
+
+  .tier-table colgroup .col-label { width: 28%; }
+  .tier-table colgroup .col-tier { width: 18%; }
 
   .tier-table thead th {
     text-align: left;
-    padding: 16px 20px;
+    padding: 16px 16px;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -202,7 +206,18 @@
 
   .tier-table thead th:first-child {
     padding-left: 0;
-    width: 240px;
+  }
+
+  .swipe-hint {
+    display: none;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 8px 4px;
+    margin-bottom: 8px;
   }
 
   .tier-table thead th .tier-name {
@@ -224,7 +239,7 @@
   }
 
   .tier-table tbody td {
-    padding: 14px 20px;
+    padding: 14px 16px;
     font-size: 13px;
     font-weight: 400;
     color: var(--lighter);
@@ -515,24 +530,9 @@
     .tier-table-wrap {
       margin: 0 -20px;
       padding: 0 20px;
-      position: relative;
-    }
-    .tier-table-wrap::after {
-      content: 'SWIPE →';
-      position: sticky;
-      top: 0;
-      right: 0;
-      float: right;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      pointer-events: none;
-      background: linear-gradient(90deg, transparent, var(--near-black) 30%);
-      padding: 8px 4px 8px 32px;
     }
     .tier-table { min-width: 700px; }
+    .swipe-hint { display: block; }
 
     /* Tier cards stack vertically */
     .tier-cards { grid-template-columns: 1fr; }
@@ -630,8 +630,16 @@
   <div class="section-title">Four levels. One standard.</div>
   <div class="section-sub">Every tier delivers our full RCM suite. The difference is how fast we respond and how deep we go.</div>
 
+  <div class="swipe-hint">SWIPE →</div>
   <div class="tier-table-wrap">
   <table class="tier-table">
+    <colgroup>
+      <col class="col-label">
+      <col class="col-tier">
+      <col class="col-tier">
+      <col class="col-tier">
+      <col class="col-tier">
+    </colgroup>
     <thead>
       <tr>
         <th></th>
