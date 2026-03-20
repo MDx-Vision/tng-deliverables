@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDx Vision — Russia & CIS Market Entry</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23c8a97e'/><text x='16' y='22' text-anchor='middle' fill='%230a0a0a' font-size='16' font-family='system-ui' font-weight='700'>M</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c8a97e; --gold-dim: #a08560; --bg: #0a0a0a;
+            --surface: #111111; --surface-2: #1a1a1a; --surface-3: #222222;
+            --border: #2a2a2a; --text: #e0e0e0; --text-dim: #999999;
+            --text-muted: #666666; --white: #ffffff; --green: #4ade80;
+            --red: #f87171; --blue: #60a5fa; --cyan: #22d3ee;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: var(--bg); }
+            .page { box-shadow: none; margin: 0; }
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #050505; color: var(--text); line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .page {
+            width: 8.5in; height: 11in; margin: 20px auto; background: var(--bg);
+            box-shadow: 0 0 60px rgba(200,169,126,0.04);
+            padding: 0.35in 0.45in; position: relative; border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .page::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 9px; border-bottom: 1px solid var(--border); margin-bottom: 9px;
+        }
+        .logo-mark img { height: 34px; filter: brightness(0) invert(1); }
+        .header-right { text-align: right; }
+        .tagline { font-size: 0.78rem; color: var(--text-dim); }
+        .tagline strong { display: block; font-size: 0.95rem; color: var(--gold); font-weight: 500; letter-spacing: 0.5px; }
+        .market-badge {
+            display: inline-block; margin-top: 4px; padding: 2px 10px;
+            border: 1px solid var(--gold-dim); font-size: 0.52rem; color: var(--gold);
+            letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+        }
+
+        .section { margin-bottom: 8px; }
+        .section-title {
+            font-size: 0.54rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2.5px; color: var(--gold-dim); margin-bottom: 5px;
+            padding-bottom: 3px; border-bottom: 1px solid var(--border);
+        }
+        p { font-size: 0.68rem; color: var(--text-dim); line-height: 1.45; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+
+        .stat-box {
+            background: var(--surface); padding: 7px 10px;
+            border-left: 2px solid var(--red);
+            border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .stat-box.success { border-left-color: var(--green); }
+        .stat-box.gold { border-left-color: var(--gold); }
+        .stat-box.blue { border-left-color: var(--blue); }
+        .stat-number { font-size: 1.1rem; font-weight: 500; color: var(--white); }
+        .stat-label { font-size: 0.48rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 1px; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.64rem; }
+        th, td { padding: 4px 6px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 600; background: var(--surface); }
+        td { color: var(--text-dim); }
+        .status-ready { color: var(--green); font-weight: 600; font-size: 0.6rem; }
+        .status-build { color: var(--gold); font-weight: 600; font-size: 0.6rem; }
+        .status-planned { color: var(--text-muted); font-size: 0.6rem; }
+
+        .card {
+            background: var(--surface); padding: 7px 10px;
+            border-left: 2px solid var(--gold-dim);
+            border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .card h4 { font-size: 0.64rem; font-weight: 600; color: var(--white); margin-bottom: 1px; }
+        .card p { font-size: 0.56rem; line-height: 1.4; }
+
+        .feature-item {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.62rem; color: var(--text); padding: 3px 0; border-bottom: 1px solid var(--border);
+        }
+        .check { color: var(--green); font-weight: 700; font-size: 0.7rem; }
+
+        .opportunity-box {
+            background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+            border: 1px solid var(--gold-dim); padding: 8px 14px; text-align: center;
+        }
+        .opportunity-box .stat-number { color: var(--gold); font-size: 1.3rem; font-weight: 600; }
+        .opportunity-box .stat-label { color: var(--text-dim); font-size: 0.52rem; }
+
+        .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .timeline-item {
+            background: var(--surface); padding: 7px 9px; border-top: 2px solid var(--gold-dim);
+            border-left: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .timeline-item h4 { font-size: 0.56rem; font-weight: 600; color: var(--gold); margin-bottom: 1px; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-item p { font-size: 0.54rem; line-height: 1.35; }
+
+        .footer {
+            margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .contact-info { display: flex; gap: 24px; }
+        .contact-item { font-size: 0.62rem; }
+        .contact-item .label { font-size: 0.48rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
+        .contact-item .value { color: var(--text); font-weight: 500; }
+        .contact-item a { color: var(--gold); text-decoration: none; font-weight: 500; }
+        .patent-footer { font-size: 0.54rem; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .page { width: 100%; height: auto; padding: 20px; margin: 0; border: none; overflow: visible; }
+            .header { flex-direction: column; text-align: center; gap: 10px; }
+            .header-right { text-align: center; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .grid-4, .grid-5 { grid-template-columns: 1fr 1fr; }
+            .timeline { grid-template-columns: 1fr 1fr; }
+            .footer { flex-direction: column; gap: 12px; text-align: center; }
+            .contact-info { flex-direction: column; gap: 8px; }
+        }
+        @media (max-width: 480px) {
+            .page { padding: 15px; }
+            .grid-4, .grid-5 { grid-template-columns: 1fr; }
+            .timeline { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="logo-mark">
+                <img src="assets/mdx-logo-color.png" alt="MDx Vision">
+            </div>
+            <div class="header-right">
+                <div class="tagline">
+                    <strong>Russia & CIS Market Entry Strategy</strong>
+                    Voice-first AI documentation for 1M+ physicians
+                </div>
+                <span class="market-badge">International Expansion</span>
+            </div>
+        </div>
+
+        <!-- Opportunity Stats -->
+        <div class="section">
+            <div class="section-title">The Opportunity</div>
+            <div class="grid-5">
+                <div class="stat-box gold"><div class="stat-number">740K</div><div class="stat-label">Physicians — Russia</div></div>
+                <div class="stat-box gold"><div class="stat-number">260K+</div><div class="stat-label">Physicians — CIS</div></div>
+                <div class="stat-box"><div class="stat-number">60%</div><div class="stat-label">Time on documentation</div></div>
+                <div class="stat-box"><div class="stat-number">$2B+</div><div class="stat-label">Gov't digital health spend</div></div>
+                <div class="stat-box blue"><div class="stat-number">1M+</div><div class="stat-label">Total addressable MDs</div></div>
+            </div>
+        </div>
+
+        <!-- Problem + Stats side by side -->
+        <div class="section">
+            <div class="section-title">The Problem — Universal Pain, Unique Context</div>
+            <div class="grid-2">
+                <p>Russian and CIS physicians face the <strong style="color:var(--white)">same documentation crisis</strong> as US doctors — but worse. Soviet-legacy paperwork demands everything in triplicate. GPs see 30-40 patients/day while hand-writing forma 025/u medical cards, disability certificates, and mandatory disease reports. Digitization mandates added typing on top of paper — documentation burden <em>doubled</em>.</p>
+                <div class="grid-2" style="gap: 6px;">
+                    <div class="stat-box"><div class="stat-number">30-40</div><div class="stat-label">Patients/day per GP</div></div>
+                    <div class="stat-box"><div class="stat-number">10 min</div><div class="stat-label">Avg. encounter slot</div></div>
+                    <div class="stat-box"><div class="stat-number">$500-800</div><div class="stat-label">Monthly MD salary (regions)</div></div>
+                    <div class="stat-box success"><div class="stat-number">3+ hrs</div><div class="stat-label">MDx saves per MD/day</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EHR + Pre-build side by side -->
+        <div class="section">
+            <div class="grid-2">
+                <div>
+                    <div class="section-title">Target EHR Systems</div>
+                    <table>
+                        <thead><tr><th>System</th><th>Coverage</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong style="color:var(--white)">EMIAS</strong></td><td>Moscow (12M pop.)</td><td class="status-build">CDA Adapter</td></tr>
+                            <tr><td><strong style="color:var(--white)">EGISZ</strong></td><td>Federal (all regions)</td><td class="status-build">CDA Adapter</td></tr>
+                            <tr><td><strong style="color:var(--white)">1C:Medicine</strong></td><td>~30% of clinics</td><td class="status-planned">API Bridge</td></tr>
+                            <tr><td><strong style="color:var(--white)">Infoclinica</strong></td><td>Private sector</td><td class="status-planned">API Bridge</td></tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 3px; font-size: 0.5rem; color: var(--text-muted);">Russia uses HL7 CDA — our CDA adapter translates to existing FHIR R4 infrastructure.</p>
+                </div>
+                <div>
+                    <div class="section-title">Pre-Build (Zero Sanctions Risk)</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> Russian language pack (voice + UI + SOAP)</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> HL7 CDA &#8596; FHIR R4 adapter layer</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> Russian medical terminology NLP</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> Roszdravnadzor regulatory docs</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> CIS pilot deployment (Kazakhstan)</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> Russian-speaking MD beta group (US)</div>
+                    <div class="feature-item"><span class="check">&#10003;</span> Conference presence (Dubai, Istanbul)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CIS Entry Markets -->
+        <div class="section">
+            <div class="section-title">CIS Entry Markets — Deploy Now, Prove the Model</div>
+            <div class="grid-4">
+                <div class="card" style="border-left-color: var(--green);"><h4>Kazakhstan</h4><p>70K+ MDs. Oil-funded modernization. Astana Hub incentives. <strong style="color:var(--green)">Primary target.</strong></p></div>
+                <div class="card" style="border-left-color: var(--blue);"><h4>Uzbekistan</h4><p>80K+ MDs. 35M population. WHO-backed digital health reform.</p></div>
+                <div class="card" style="border-left-color: var(--cyan);"><h4>Georgia</h4><p>15K+ MDs. Pro-Western. Universal coverage since 2013.</p></div>
+                <div class="card"><h4>Armenia</h4><p>12K+ MDs. Strong IT sector. Tech-savvy, accessible market.</p></div>
+            </div>
+            <p style="margin-top: 4px; font-size: 0.56rem;">Same Russian-speaking MDs. Same Soviet-legacy forms. <strong style="color:var(--white)">If it works in Almaty, it works in Moscow.</strong></p>
+        </div>
+
+        <!-- Revenue + TAM side by side -->
+        <div class="section">
+            <div class="grid-2">
+                <div>
+                    <div class="section-title">Revenue Model</div>
+                    <table>
+                        <thead><tr><th>Segment</th><th>Model</th><th>Price</th></tr></thead>
+                        <tbody>
+                            <tr><td>Private clinics</td><td>SaaS / physician</td><td>$200-400/mo</td></tr>
+                            <tr><td>Government (regional)</td><td>National license</td><td>$5-50M / region</td></tr>
+                            <tr><td>DMS insurers</td><td>Per-member/mo</td><td>$0.50-1.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="section-title">TAM at 5% Penetration</div>
+                    <div class="opportunity-box" style="margin-bottom: 6px;">
+                        <div class="stat-number">$133M ARR</div>
+                        <div class="stat-label">Russia alone — 37K physicians at $300/mo avg.</div>
+                    </div>
+                    <div class="opportunity-box">
+                        <div class="stat-number">$200M+ ARR</div>
+                        <div class="stat-label">Russia + CIS combined — excludes gov't contracts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Go-to-Market Timeline -->
+        <div class="section">
+            <div class="section-title">Go-to-Market (Post-Sanctions Lift)</div>
+            <div class="timeline">
+                <div class="timeline-item"><h4>Day 0</h4><p>Russian lang & CDA adapter pre-built. Kazakhstan case studies ready.</p></div>
+                <div class="timeline-item"><h4>Month 1-3</h4><p>Roszdravnadzor filing. Moscow private clinic pilot (EMC/Medsi).</p></div>
+                <div class="timeline-item"><h4>Month 3-12</h4><p>Private chain rollout. Gov't tender. DMS insurer partnership.</p></div>
+                <div class="timeline-item"><h4>Month 12-24</h4><p>Federal deployment. Regional contracts. 10K+ physicians live.</p></div>
+            </div>
+        </div>
+
+        <!-- Why We Win -->
+        <div class="section">
+            <div class="section-title">Why MDx Vision Wins This Market</div>
+            <div class="grid-3">
+                <div class="card" style="border-left-color: var(--green);"><h4>First Mover</h4><p>Zero Western AR healthcare platforms in Russia/CIS. No competition in voice-first clinical AI.</p></div>
+                <div class="card" style="border-left-color: var(--gold);"><h4>Proven Platform</h4><p>129+ features. 87 Minerva AI capabilities. 29 EHR integrations. Adapt, don't rebuild.</p></div>
+                <div class="card" style="border-left-color: var(--blue);"><h4>Gov't Alignment</h4><p>$2B digital health mandate failed on adoption. MDx makes doctors want the system.</p></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="contact-info">
+                <div class="contact-item"><div class="label">Contact</div><div class="value">Rafael Rodriguez, CEO</div></div>
+                <div class="contact-item"><div class="label">Email</div><div class="value"><a href="mailto:rafael@mdx.vision">rafael@mdx.vision</a></div></div>
+                <div class="contact-item"><div class="label">Web</div><div class="value"><a href="https://mdx.vision">mdx.vision</a></div></div>
+            </div>
+            <div class="patent-footer">US Patent 15/237,980 &nbsp;|&nbsp; Confidential</div>
+        </div>
+    </div>
+</body>
+</html>
