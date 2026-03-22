@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reir Enterprises — Integrated Healthcare Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --black: #000000;
+    --near-black: #0a0a0a;
+    --dark: #111111;
+    --dark-2: #1a1a1a;
+    --dark-3: #222222;
+    --mid: #333333;
+    --mid-2: #555555;
+    --light: #999999;
+    --lighter: #cccccc;
+    --off-white: #e8e8e8;
+    --white: #ffffff;
+    --accent: #c8a97e;
+    --accent-dim: rgba(200,169,126,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--near-black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ─── SLIDE SYSTEM ─── */
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 72px;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .slide-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .slide-logo {
+    height: 48px;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+  }
+
+  .slide-num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--mid-2);
+  }
+
+  .slide-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .slide-title {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 200;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .slide-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .slide-lead {
+    font-size: clamp(15px, 1.3vw, 19px);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--lighter);
+    max-width: 720px;
+  }
+
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 24px;
+    border-top: 1px solid var(--dark-3);
+    margin-top: auto;
+  }
+
+  .slide-footer-left {
+    font-size: 11px;
+    color: var(--mid-2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .slide-footer-right {
+    font-size: 11px;
+    color: var(--mid-2);
+  }
+
+  /* ─── COVER SLIDE ─── */
+  .cover {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .cover .slide-nav {
+    position: absolute;
+    top: 56px;
+    left: 72px;
+    right: 72px;
+  }
+
+  .cover-brand {
+    margin-bottom: 48px;
+  }
+
+  .cover-brand-name {
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+
+  .cover-brand-sub {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid-2);
+  }
+
+  .cover h1 {
+    font-size: clamp(32px, 4vw, 64px);
+    font-weight: 200;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+
+  .cover h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .cover .lead {
+    font-size: clamp(15px, 1.3vw, 19px);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--lighter);
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .cover-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--dark-3);
+  }
+
+  .cover-stat-val {
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 200;
+    letter-spacing: -1px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .cover-stat-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--light);
+    line-height: 1.4;
+  }
+
+  /* ─── CONTENT HELPERS ─── */
+  .slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 32px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .four-col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .col-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--dark-3);
+  }
+
+  .col-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--off-white);
+    line-height: 1.7;
+  }
+
+  .col-text li {
+    margin-bottom: 8px;
+    list-style: none;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .col-text li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: absolute;
+    left: 0;
+    top: 8px;
+  }
+
+  /* ─── ARCHITECTURE DIAGRAM ─── */
+  .arch-stack {
+    margin-top: 40px;
+  }
+
+  .arch-layer {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--dark-3);
+    background: var(--dark);
+    padding: 20px 28px;
+    margin-bottom: -1px;
+  }
+
+  .arch-layer:first-child {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .arch-layer-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    min-width: 260px;
+  }
+
+  .arch-layer-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--light);
+  }
+
+  .arch-layer-tag {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* ─── TEAM GRID ─── */
+  .team-card {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    padding: 24px;
+  }
+
+  .team-initials {
+    font-size: 24px;
+    font-weight: 200;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .team-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .team-role {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  /* ─── FINANCIAL TABLE ─── */
+  .fin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+  }
+
+  .fin-table th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--dark-3);
+  }
+
+  .fin-table td {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--off-white);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--dark-2);
+  }
+
+  .fin-table tr:last-child td {
+    border-bottom: none;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .timeline-item {
+    border-top: 2px solid var(--dark-3);
+    padding-top: 20px;
+  }
+
+  .timeline-item:first-child {
+    border-top-color: var(--accent);
+  }
+
+  .timeline-period {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .timeline-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .timeline-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  /* ─── HIGHLIGHT BOX ─── */
+  .highlight-box {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    padding: 32px 36px;
+    margin-top: 32px;
+  }
+
+  .highlight-box .val {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 200;
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .highlight-box .label {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--lighter);
+  }
+
+  /* ─── CLOSING SLIDE ─── */
+  .closing {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .closing h1 {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 200;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .closing h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .closing .lead {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--lighter);
+    margin-bottom: 48px;
+    max-width: 560px;
+  }
+
+  .closing-contact {
+    font-size: 14px;
+    color: var(--light);
+    line-height: 2;
+  }
+
+  .closing-contact strong {
+    color: var(--off-white);
+    font-weight: 500;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .slide { padding: 32px 24px; }
+    .cover .slide-nav { left: 24px; right: 24px; top: 32px; }
+    .cover-stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .two-col, .three-col { grid-template-columns: 1fr; gap: 24px; }
+    .four-col { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .arch-layer { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .arch-layer-name { min-width: auto; }
+    .arch-layer-tag { margin-left: 0; }
+    .timeline { grid-template-columns: 1fr 1fr; }
+    .fin-table { font-size: 12px; }
+    .fin-table td, .fin-table th { padding: 8px 10px; }
+  }
+
+  @media (max-width: 480px) {
+    .slide { padding: 24px 16px; }
+    .cover h1 { font-size: 28px; }
+    .slide-title { font-size: 24px; }
+    .cover-stats { grid-template-columns: 1fr 1fr; }
+    .four-col { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .team-card { padding: 16px; }
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .slide { padding: 36px 48px; }
+    .slide-logo { filter: none; opacity: 1; }
+    .arch-layer { background: #f5f5f5; }
+    .team-card { background: #f5f5f5; }
+    .highlight-box { background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 1: COVER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide cover">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">Confidential</span>
+  </div>
+
+  <div class="cover-brand">
+    <div class="cover-brand-name">Reir Enterprises</div>
+    <div class="cover-brand-sub">Integrated Healthcare Services</div>
+  </div>
+
+  <h1>One physician leader.<br>Two hundred doctors.<br><em>Multi-billion-dollar outcome.</em></h1>
+  <p class="lead">Dr. Rizwan Hameed's physician network — powered by an integrated Management Services Organization combining full-cycle revenue management, enterprise technology, and AI-powered clinical intelligence.</p>
+
+  <div class="cover-stats">
+    <div>
+      <div class="cover-stat-val">$2B+</div>
+      <div class="cover-stat-label">Target Entity Valuation</div>
+    </div>
+    <div>
+      <div class="cover-stat-val">100+</div>
+      <div class="cover-stat-label">Physicians Under Management</div>
+    </div>
+    <div>
+      <div class="cover-stat-val">300K</div>
+      <div class="cover-stat-label">Patient Lives</div>
+    </div>
+    <div>
+      <div class="cover-stat-val">3</div>
+      <div class="cover-stat-label">Revenue Verticals</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 2: DR. HAMEED — THE VISIONARY -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">02</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">The Physician Leader</div>
+    <div class="slide-title">Dr. Rizwan Hameed.<br><em>The network. The vision. The credibility.</em></div>
+
+    <div class="two-col">
+      <div>
+        <div class="col-label">Credentials</div>
+        <ul class="col-text">
+          <li>IPA Chairman — 200+ affiliated physicians</li>
+          <li>300,000 patient lives under management</li>
+          <li>Health First top-performing IPA</li>
+          <li>Director of Pharmacy & Infectious Disease</li>
+          <li>Board of Directors: Columbia, NY Presbyterian, Mount Sinai, NYU</li>
+          <li>30+ years practicing medicine</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Why Dr. Hameed</div>
+        <ul class="col-text">
+          <li>When Dr. Hameed adopts a platform, physicians follow — his endorsement is the fastest path to network-wide adoption</li>
+          <li>Champion of value-based care and integrative medicine</li>
+          <li>Already engaged — wants to build the MSO with us</li>
+          <li>Brooklyn market: dense, underserved, high-volume primary care</li>
+          <li>One relationship unlocks 200 physicians and 300K patient lives</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div class="val">$5.6M</div>
+        <div class="label">Potential ARR from Dr. Hameed's network alone (200 × $80K × 12 × 3.5%)</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 13px; color: var(--light); line-height: 1.7;">Single contract. Single relationship.<br>The entire MSO starts here.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 3: THE PROBLEM — DR. HAMEED'S CHALLENGE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">03</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">The Challenge</div>
+    <div class="slide-title">Dr. Hameed's physicians are <em>losing revenue</em> and drowning in paperwork.</div>
+
+    <div class="three-col">
+      <div>
+        <div class="col-label">Revenue Leakage</div>
+        <div class="col-text">
+          The average physician practice loses 11% of collectible revenue to billing errors, denial mismanagement, and payer underpayment. Across 200 physicians, that's millions left on the table every year.
+        </div>
+      </div>
+      <div>
+        <div class="col-label">Administrative Burden</div>
+        <div class="col-text">
+          Dr. Hameed's physicians spend 2+ hours daily on documentation instead of seeing patients. The EHR was supposed to help — instead, it created a documentation tax that accelerates burnout.
+        </div>
+      </div>
+      <div>
+        <div class="col-label">Fragmentation</div>
+        <div class="col-text">
+          Each practice in the network negotiates alone, manages its own billing, and absorbs overhead. No collective bargaining power. No economies of scale. No path to enterprise-level valuation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Sources: MGMA, Optum 2024 Denials Index, Medscape Burnout Report</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 4: THE SOLUTION — MSO MODEL -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">04</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">The Model</div>
+    <div class="slide-title">Dr. Hameed's network, <em>unified under one entity.</em></div>
+    <div class="slide-lead">A Management Services Organization built around Dr. Hameed's physician network — preserving his physicians' clinical autonomy while centralizing billing, technology, compliance, and operations under a single Tax ID.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="col-label">Physicians Get</div>
+        <ul class="col-text">
+          <li>Full clinical autonomy — no interference</li>
+          <li>Revenue cycle fully managed (3-4% of collections)</li>
+          <li>AI-powered documentation (hands-free)</li>
+          <li>Carrier negotiation at scale</li>
+          <li>Zero administrative overhead</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">The Entity Gets</div>
+        <ul class="col-text">
+          <li>100+ physicians under single Tax ID</li>
+          <li>Recurring revenue (% of all collections)</li>
+          <li>Proprietary technology moat (patented)</li>
+          <li>Data asset across 300K patient lives</li>
+          <li>Enterprise valuation trajectory</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 5: ARCHITECTURE STACK -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">05</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">Enterprise Architecture</div>
+    <div class="slide-title">Three layers. <em>One integrated stack.</em></div>
+
+    <div class="arch-stack">
+      <div class="arch-layer">
+        <div class="arch-layer-name">MDx Vision (AI Glasses)</div>
+        <div class="arch-layer-desc">AR clinical intelligence — voice-activated, hands-free, FHIR-connected. US Patent 15/237,980. 129+ features.</div>
+        <div class="arch-layer-tag">4% Tier</div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-layer-name">NiceHR Platform</div>
+        <div class="arch-layer-desc">Enterprise SaaS — 640+ API endpoints, 50+ modules, EHR integration, data analytics, AI-powered automation.</div>
+        <div class="arch-layer-tag">Technology</div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-layer-name">Revenue Cycle Management</div>
+        <div class="arch-layer-desc">Full-cycle billing — 1,850+ professionals, 2M+ claims/month, 98% clean claim rate. Bronze through Platinum tiers.</div>
+        <div class="arch-layer-tag">3% Base</div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-layer-name">MSO (Single Tax ID)</div>
+        <div class="arch-layer-desc">Unified entity — 100+ physicians, single operating structure, shared compliance, centralized negotiation.</div>
+        <div class="arch-layer-tag">Entity</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 6: REVENUE MODEL -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">06</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">Revenue Model</div>
+    <div class="slide-title">Percentage of every dollar collected. <em>Recurring. Compounding.</em></div>
+
+    <table class="fin-table">
+      <thead>
+        <tr>
+          <th>Revenue Stream</th>
+          <th>Model</th>
+          <th>Rate</th>
+          <th>Example (100 Physicians)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RCM / Billing Services</td>
+          <td>% of collections</td>
+          <td>3%</td>
+          <td>$2.4M / year</td>
+        </tr>
+        <tr>
+          <td>AI Glasses (Bundled)</td>
+          <td>% of collections</td>
+          <td>4% (replaces 3%)</td>
+          <td>$3.2M / year</td>
+        </tr>
+        <tr>
+          <td>Platform & Analytics</td>
+          <td>Per-physician fee</td>
+          <td>Included</td>
+          <td>Embedded in %</td>
+        </tr>
+        <tr>
+          <td>Combined (Blended)</td>
+          <td>% of collections</td>
+          <td>3.5% avg</td>
+          <td>$2.8M / year</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box" style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div class="val">98.4%</div>
+        <div class="label">Gross margin at scale (COGS: $21.32/mo per physician)</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 13px; color: var(--light); line-height: 1.7;">Based on $80K avg monthly collections per physician.<br>100 physicians × $80K × 12 months × 3.5% = $2.8M ARR.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential — Financial Projections</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 7: THE TEAM BEHIND DR. HAMEED -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">07</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">The Team Behind the Vision</div>
+    <div class="slide-title">Dr. Hameed leads. <em>We execute.</em></div>
+
+    <!-- Dr. Hameed featured card — full width -->
+    <div style="margin-bottom: 24px; background: var(--accent-dim); border: 1px solid var(--accent); padding: 28px 32px; display: flex; align-items: center; gap: 32px;">
+      <div>
+        <div class="team-initials" style="font-size: 32px;">RH</div>
+      </div>
+      <div>
+        <div class="team-name" style="font-size: 18px; margin-bottom: 6px;">Dr. Rizwan Hameed, MD</div>
+        <div class="team-role" style="font-size: 13px;">IPA Chairman &amp; Network Leader<br>200+ physicians. 300K patient lives. Board of Directors at Columbia, NY Presbyterian, Mount Sinai, NYU. Director of Pharmacy &amp; Infectious Disease. Health First top-performing IPA. 30+ years practicing medicine.</div>
+      </div>
+    </div>
+
+    <div class="four-col">
+      <div class="team-card">
+        <div class="team-initials">RR</div>
+        <div class="team-name">Rafael Rodriguez</div>
+        <div class="team-role">CEO & Founder<br>Technology, product, architecture. US Patent holder. Built the AI platform from zero to 129+ features.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initials">SP</div>
+        <div class="team-name">Sandy Paar</div>
+        <div class="team-role">CRO<br>15+ years healthcare sales. WebMD alumni. NYU. The Paar Group.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initials">RA</div>
+        <div class="team-name">Riasat Ali, MD</div>
+        <div class="team-role">CMIO<br>Clinical validation, EHR workflow design, physician adoption strategy.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initials">PD</div>
+        <div class="team-name">Paul Denya</div>
+        <div class="team-role">CTO<br>Infrastructure, security, scalability. Enterprise architecture.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px; padding: 20px 24px; border: 1px solid var(--dark-3); background: var(--dark);">
+      <div style="font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Operational Partner</div>
+      <div style="font-size: 14px; color: var(--off-white);">HealthRecon Connect (HRC) — 1,850+ RCM professionals, $1B+ revenue recovered, ISO 27001/SOC 2/HIPAA certified, BBB A+ rated. White-labeled under NiceHR brand. NDA and BAA executed.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 8: CORPORATE STRUCTURE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">08</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">Corporate Structure</div>
+    <div class="slide-title">IP protected. <em>Operations separated.</em></div>
+
+    <div class="arch-stack" style="max-width: 700px;">
+      <div class="arch-layer" style="border-color: var(--accent); background: var(--accent-dim);">
+        <div class="arch-layer-name">Reir Enterprises</div>
+        <div class="arch-layer-desc">Umbrella holding entity</div>
+        <div class="arch-layer-tag">Parent</div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-layer-name">IP Holding Company</div>
+        <div class="arch-layer-desc">Owns all technology, software, patents. Licenses to operating entity. Protected from operational liabilities.</div>
+        <div class="arch-layer-tag">IP / Patents</div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-layer-name">Operating LLC</div>
+        <div class="arch-layer-desc">Clinical services, RCM operations, physician contracts. Licenses technology from IP holding co.</div>
+        <div class="arch-layer-tag">Operations</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top: 40px;">
+      <div>
+        <div class="col-label">Why This Structure</div>
+        <ul class="col-text">
+          <li>IP isolated from operational risk</li>
+          <li>Clean cap table for future investment</li>
+          <li>Patent portfolio (US 15/237,980) protected</li>
+          <li>Licensing creates internal revenue flow</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Legal Readiness</div>
+        <ul class="col-text">
+          <li>Mutual NDA executed with HRC</li>
+          <li>HIPAA BAA executed with HRC</li>
+          <li>White-labeling agreement in place</li>
+          <li>No bankruptcy, no material liabilities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 9: ROADMAP -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">09</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-eyebrow">Dr. Hameed's Growth Path</div>
+    <div class="slide-title">His network grows. <em>The entity scales.</em></div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-period">Q2 2026</div>
+        <div class="timeline-title">Dr. Hameed Launches</div>
+        <div class="timeline-desc">First 25-50 of Dr. Hameed's physicians on RCM. AI glasses deployed to early adopters. Unit economics validated with real data.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Q3 2026</div>
+        <div class="timeline-title">Full Network Live</div>
+        <div class="timeline-desc">All 200 physicians onboarded. Full carrier review cycle. 3hrs+ physician time savings proven. Dr. Hameed's IPA becomes the reference case.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Q4 2026</div>
+        <div class="timeline-title">Network Expansion</div>
+        <div class="timeline-desc">Dr. Hameed's relationships bring in the next physician network. Target: 500+ physicians under management. Value-based contracting begins.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">2027+</div>
+        <div class="timeline-title">Enterprise Scale</div>
+        <div class="timeline-desc">1,000+ physicians. National footprint. Dr. Hameed's network becomes the anchor of a multi-billion-dollar integrated healthcare entity.</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Position of Strength</div>
+        <div style="font-size: 15px; color: var(--off-white); line-height: 1.6;">Internal revenue funds development. Technology moat deepens with each physician onboarded. No early-stage dilution required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="slide-footer-left">Reir Enterprises</span>
+    <span class="slide-footer-right">Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 10: CLOSING -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide closing">
+  <div class="slide-nav">
+    <img src="tng-logo-black.svg" alt="TNG" class="slide-logo">
+    <span class="slide-num">10</span>
+  </div>
+
+  <div class="slide-body" style="align-items: center; text-align: center;">
+    <div class="cover-brand" style="margin-bottom: 40px;">
+      <div class="cover-brand-name">Reir Enterprises</div>
+    </div>
+    <h1>The physician leader is ready.<br>The infrastructure is built.<br><em>The opportunity is now.</em></h1>
+    <p class="lead">Dr. Hameed's network. Our technology. One integrated entity with signed agreements, a patented platform, and 200 physicians ready to onboard.</p>
+
+    <div class="closing-contact">
+      <strong>Rafael Rodriguez</strong> — CEO & Founder<br>
+      info@thenicehrgroup.com &nbsp;|&nbsp; 212-203-3513<br>
+      <br>
+      <span style="font-size: 11px; color: var(--mid-2); letter-spacing: 2px; text-transform: uppercase;">Confidential — For Intended Recipients Only</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
