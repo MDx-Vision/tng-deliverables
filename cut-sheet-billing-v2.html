@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The NiceHR Group — Billing Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --black: #000000;
+    --near-black: #0a0a0a;
+    --dark: #111111;
+    --dark-2: #1a1a1a;
+    --dark-3: #222222;
+    --mid: #333333;
+    --mid-2: #555555;
+    --light: #999999;
+    --lighter: #cccccc;
+    --off-white: #e8e8e8;
+    --white: #ffffff;
+    --accent: #c8a97e;
+    --accent-dim: rgba(200,169,126,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--near-black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .sheet {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 56px 28px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .header-logo {
+    height: 60px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  .header-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--light);
+    text-align: right;
+  }
+
+  .header-label span {
+    display: block;
+    margin-top: 4px;
+    color: var(--mid-2);
+    letter-spacing: 2px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    margin-bottom: 20px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 2.8vw, 36px);
+    font-weight: 200;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero .lead {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--lighter);
+    max-width: 640px;
+  }
+
+  /* ─── STATS ROW ─── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--dark-3);
+    border-bottom: 1px solid var(--dark-3);
+    margin-bottom: 24px;
+  }
+
+  .stat-val {
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 200;
+    letter-spacing: -1px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light);
+    line-height: 1.4;
+  }
+
+  /* ─── TWO COLUMN ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    margin-bottom: 20px;
+  }
+
+  .col-eyebrow {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .service-list {
+    list-style: none;
+  }
+
+  .service-list li {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--off-white);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--dark-2);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .service-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .service-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* ─── PRICING STRIP ─── */
+  .pricing-strip {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .pricing-left {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .pricing-rate {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 200;
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .pricing-detail {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  .pricing-detail strong {
+    color: var(--off-white);
+    font-weight: 500;
+  }
+
+  .pricing-right {
+    text-align: right;
+  }
+
+  .pricing-right .cta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .pricing-right .cta-detail {
+    font-size: 13px;
+    color: var(--light);
+  }
+
+  /* ─── COMPLIANCE ROW ─── */
+  .compliance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding: 14px 0;
+    border-top: 1px solid var(--dark-3);
+    margin-bottom: 14px;
+  }
+
+  .compliance span {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid-2);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 14px;
+    border-top: 1px solid var(--dark-3);
+  }
+
+  .footer-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+  }
+
+  .footer-contact {
+    text-align: right;
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.7;
+  }
+
+  .footer-contact strong {
+    color: var(--off-white);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .sheet { padding: 32px 24px; }
+    .header-logo { height: 56px; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
+    .pricing-strip {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .pricing-right { text-align: left; }
+    .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-contact { text-align: left; }
+  }
+
+  @media (max-width: 480px) {
+    .sheet { padding: 24px 16px; }
+    .header-logo { height: 44px; }
+    .hero h1 { font-size: 24px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat-val { font-size: 28px; }
+    .service-list li { font-size: 13px; }
+    .pricing-strip { padding: 24px 20px; }
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .sheet { padding: 36px 48px; }
+    .header-logo, .footer-logo { filter: none; opacity: 1; }
+    .pricing-strip { background: #f5f5f5; border-color: #ddd; }
+    .pricing-rate { color: #8b7355; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="tng-logo-black.svg" alt="The NiceHR Group" class="header-logo">
+    <div class="header-label">
+      Billing Services
+      <span>Cut Sheet</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Revenue Cycle Management — Dr. Hameed's Network</div>
+    <h1>Full-cycle billing.<br>200 physicians. <em>3% of collections.</em></h1>
+    <p class="lead">End-to-end revenue cycle management for Dr. Hameed's IPA — backed by 1,850+ RCM professionals. From eligibility verification to old A/R recovery, his physicians focus on patients while we handle every dollar.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div>
+      <div class="stat-val">2M+</div>
+      <div class="stat-label">Claims Processed Monthly</div>
+    </div>
+    <div>
+      <div class="stat-val">21</div>
+      <div class="stat-label">Day Collection Reduction</div>
+    </div>
+    <div>
+      <div class="stat-val">$1B+</div>
+      <div class="stat-label">Revenue Recovered</div>
+    </div>
+    <div>
+      <div class="stat-val">98%</div>
+      <div class="stat-label">Clean Claim Rate</div>
+    </div>
+  </div>
+
+  <!-- TWO COLUMN SERVICES -->
+  <div class="two-col">
+    <div>
+      <div class="col-eyebrow">Core Services</div>
+      <ul class="service-list">
+        <li>Eligibility & benefits verification</li>
+        <li>Prior authorization & referrals</li>
+        <li>Medical coding (ICD-10, CPT, HCPCS)</li>
+        <li>Charge entry & claim submission</li>
+        <li>Payment posting & reconciliation</li>
+        <li>Denial management & appeals</li>
+        <li>Patient billing & statements</li>
+        <li>Old A/R recovery (60-120+ days)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-eyebrow">Included With Every Engagement</div>
+      <ul class="service-list">
+        <li>Dedicated US-based account manager</li>
+        <li>Carrier performance analytics</li>
+        <li>Monthly financial reporting</li>
+        <li>Credentialing & payer enrollment</li>
+        <li>EHR integration support</li>
+        <li>HIPAA-compliant data handling</li>
+        <li>4 response tiers (Bronze → Platinum)</li>
+        <li>Cash acceleration programs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRICING STRIP -->
+  <div class="pricing-strip">
+    <div class="pricing-left">
+      <div class="pricing-rate">3%</div>
+      <div class="pricing-detail">
+        <strong>of collections</strong><br>
+        No setup fees. No minimums. You only pay on what we collect.
+      </div>
+    </div>
+    <div class="pricing-right">
+      <div class="cta-label">Get Started</div>
+      <div class="cta-detail">info@thenicehrgroup.com</div>
+      <div class="cta-detail">212-203-3513</div>
+    </div>
+  </div>
+
+  <!-- COMPLIANCE -->
+  <div class="compliance">
+    <span>HIPAA Compliant</span>
+    <span>SOC 1 & SOC 2</span>
+    <span>ISO 27001</span>
+    <span>ISO 9001</span>
+    <span>ISO 27701</span>
+    <span>BBB A+ Rated</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <img src="tng-logo-black.svg" alt="TNG" class="footer-logo">
+    <div class="footer-contact">
+      <strong>The NiceHR Group</strong><br>
+      info@thenicehrgroup.com &nbsp;|&nbsp; 212-203-3513
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
