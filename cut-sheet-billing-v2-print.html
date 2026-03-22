@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MDx Vision — Augmented Reality Clinically Integrated Intelligence</title>
+<title>The NiceHR Group — Billing Services</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
 
   :root {
-    --black: #000000;
-    --near-black: #0a0a0a;
-    --dark: #111111;
-    --dark-2: #1a1a1a;
-    --dark-3: #222222;
-    --mid: #333333;
-    --mid-2: #555555;
-    --light: #999999;
-    --lighter: #cccccc;
-    --off-white: #e8e8e8;
-    --white: #ffffff;
+    --black: #f5f5f5;
+    --near-black: #ffffff;
+    --dark: #f0f0f0;
+    --dark-2: #e8e8e8;
+    --dark-3: #e0e0e0;
+    --mid: #999999;
+    --mid-2: #777777;
+    --light: #555555;
+    --lighter: #333333;
+    --off-white: #222222;
+    --white: #111111;
     --accent: #c8a97e;
     --accent-dim: rgba(200,169,126,0.15);
   }
@@ -49,30 +49,10 @@
     margin-bottom: 24px;
   }
 
-  .header-brand {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
   .header-logo {
     height: 60px;
     filter: brightness(0) invert(1);
     opacity: 0.9;
-  }
-
-  .header-divider {
-    width: 1px;
-    height: 36px;
-    background: var(--dark-3);
-  }
-
-  .header-mdx {
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--light);
   }
 
   .header-label {
@@ -124,7 +104,7 @@
     font-weight: 400;
     line-height: 1.6;
     color: var(--lighter);
-    max-width: 680px;
+    max-width: 640px;
   }
 
   /* ─── STATS ROW ─── */
@@ -203,35 +183,6 @@
     border-bottom: none;
   }
 
-  /* ─── HOW IT WORKS ─── */
-  .how-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 16px 0;
-    border-top: 1px solid var(--dark-3);
-    border-bottom: 1px solid var(--dark-3);
-    margin-bottom: 16px;
-  }
-
-  .how-step {
-    text-align: center;
-  }
-
-  .how-num {
-    font-size: 20px;
-    font-weight: 200;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-
-  .how-text {
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--lighter);
-    line-height: 1.4;
-  }
-
   /* ─── PRICING STRIP ─── */
   .pricing-strip {
     background: var(--dark);
@@ -250,7 +201,7 @@
   }
 
   .pricing-rate {
-    font-size: clamp(32px, 3.5vw, 48px);
+    font-size: clamp(36px, 4vw, 56px);
     font-weight: 200;
     color: var(--accent);
     letter-spacing: -2px;
@@ -258,7 +209,7 @@
   }
 
   .pricing-detail {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     color: var(--light);
     line-height: 1.5;
@@ -287,20 +238,27 @@
     color: var(--light);
   }
 
-  /* ─── PATENT ─── */
-  .patent {
+  /* ─── COMPLIANCE ROW ─── */
+  .compliance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding: 14px 0;
+    border-top: 1px solid var(--dark-3);
+    margin-bottom: 14px;
+  }
+
+  .compliance span {
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--mid-2);
-    padding: 10px 0;
-    border-top: 1px solid var(--dark-3);
-    margin-bottom: 10px;
   }
 
   /* ─── FOOTER ─── */
   .footer {
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -329,30 +287,28 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
-    .sheet { padding: 28px 20px; }
-    .header-logo { height: 48px; }
-    .header-divider { display: none; }
-    .header-mdx { font-size: 12px; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .two-col { grid-template-columns: 1fr; gap: 24px; }
-    .how-strip { grid-template-columns: repeat(2, 1fr); }
+    .sheet { padding: 32px 24px; }
+    .header-logo { height: 56px; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
     .pricing-strip {
       flex-direction: column;
       align-items: flex-start;
-      gap: 16px;
+      gap: 20px;
     }
     .pricing-right { text-align: left; }
-    .footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
     .footer-contact { text-align: left; }
   }
 
   @media (max-width: 480px) {
-    .sheet { padding: 20px 16px; }
-    .header-logo { height: 40px; }
-    .hero h1 { font-size: 22px; }
-    .stat-val { font-size: 24px; }
-    .service-list li { font-size: 12px; }
-    .how-strip { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .sheet { padding: 24px 16px; }
+    .header-logo { height: 44px; }
+    .hero h1 { font-size: 24px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat-val { font-size: 28px; }
+    .service-list li { font-size: 13px; }
+    .pricing-strip { padding: 24px 20px; }
   }
 
   @media print {
@@ -370,99 +326,77 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-brand">
-      <img src="tng-logo-black.svg" alt="The NiceHR Group" class="header-logo">
-      <div class="header-divider"></div>
-      <div class="header-mdx">MDx Vision</div>
-    </div>
+    <img src="tng-logo-black.svg" alt="The NiceHR Group" class="header-logo">
     <div class="header-label">
-      AI Glasses
+      Billing Services
       <span>Cut Sheet</span>
     </div>
   </div>
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-eyebrow">Augmented Reality Clinically Integrated Intelligence — Dr. Hameed's Network</div>
-    <h1>The AI-empowered physician executive<br><em>is the physician of the future.</em></h1>
-    <p class="lead">Voice-activated augmented reality smart glasses deployed across Dr. Hameed's clinically integrated network. Real-time transcription, AI-generated SOAP notes, clinical decision support, and ambient documentation — giving every physician executive 3+ hours back per day.</p>
+    <div class="hero-eyebrow">Revenue Cycle Management — Dr. Hameed's Network</div>
+    <h1>Full-cycle billing.<br>100 physician executives. <em>3% of collections.</em></h1>
+    <p class="lead">End-to-end revenue cycle management for Dr. Hameed's clinically integrated network — backed by 1,850+ RCM professionals. From eligibility verification to old A/R recovery, physician executives focus on patients while we handle every dollar.</p>
   </div>
 
   <!-- STATS -->
   <div class="stats">
     <div>
-      <div class="stat-val">129+</div>
-      <div class="stat-label">Clinical Features</div>
+      <div class="stat-val">2M+</div>
+      <div class="stat-label">Claims Processed Monthly</div>
     </div>
     <div>
-      <div class="stat-val">29</div>
-      <div class="stat-label">EHR Integrations</div>
+      <div class="stat-val">21</div>
+      <div class="stat-label">Day Collection Reduction</div>
     </div>
     <div>
-      <div class="stat-val">3hrs+</div>
-      <div class="stat-label">Saved Per Physician / Day</div>
+      <div class="stat-val">$1B+</div>
+      <div class="stat-label">Revenue Recovered</div>
     </div>
     <div>
-      <div class="stat-val">FHIR R4</div>
-      <div class="stat-label">Interoperability Standard</div>
+      <div class="stat-val">98%</div>
+      <div class="stat-label">Clean Claim Rate</div>
     </div>
   </div>
 
-  <!-- TWO COLUMN -->
+  <!-- TWO COLUMN SERVICES -->
   <div class="two-col">
     <div>
-      <div class="col-eyebrow">Clinical Capabilities</div>
+      <div class="col-eyebrow">Core Services</div>
       <ul class="service-list">
-        <li>Voice-activated patient lookup</li>
-        <li>Real-time transcription (RNNoise)</li>
-        <li>AI-generated SOAP notes (RAG)</li>
-        <li>Ambient Clinical Intelligence</li>
-        <li>Medication interaction alerts</li>
-        <li>Clinical guideline pop-ups (ADA, ACC/AHA, JNC-8)</li>
-        <li>Health equity alerts & interpreter flags</li>
+        <li>Eligibility & benefits verification</li>
+        <li>Prior authorization & referrals</li>
+        <li>Medical coding (ICD-10, CPT, HCPCS)</li>
+        <li>Charge entry & claim submission</li>
+        <li>Payment posting & reconciliation</li>
+        <li>Denial management & appeals</li>
+        <li>Patient billing & statements</li>
+        <li>Old A/R recovery (60-120+ days)</li>
       </ul>
     </div>
     <div>
-      <div class="col-eyebrow">Minerva AI Assistant</div>
+      <div class="col-eyebrow">Included With Every Engagement</div>
       <ul class="service-list">
-        <li>Proactive clinical intelligence</li>
-        <li>Natural conversation AI</li>
-        <li>Pattern recognition & predictions</li>
-        <li>Workflow automation</li>
-        <li>EHR interface via natural language</li>
-        <li>Follow-up scheduling & smart routing</li>
-        <li>Multilingual documentation support</li>
+        <li>Dedicated US-based account manager</li>
+        <li>Carrier performance analytics</li>
+        <li>Monthly financial reporting</li>
+        <li>Credentialing & payer enrollment</li>
+        <li>EHR integration support</li>
+        <li>HIPAA-compliant data handling</li>
+        <li>4 response tiers (Bronze → Platinum)</li>
+        <li>Cash acceleration programs</li>
       </ul>
-    </div>
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <div class="how-strip">
-    <div class="how-step">
-      <div class="how-num">01</div>
-      <div class="how-text">Physician puts on glasses</div>
-    </div>
-    <div class="how-step">
-      <div class="how-num">02</div>
-      <div class="how-text">Voice command pulls patient chart</div>
-    </div>
-    <div class="how-step">
-      <div class="how-num">03</div>
-      <div class="how-text">AI listens, transcribes, suggests</div>
-    </div>
-    <div class="how-step">
-      <div class="how-num">04</div>
-      <div class="how-text">SOAP note auto-pushed to EHR</div>
     </div>
   </div>
 
   <!-- PRICING STRIP -->
   <div class="pricing-strip">
     <div class="pricing-left">
-      <div class="pricing-rate">4%</div>
+      <div class="pricing-rate">3%</div>
       <div class="pricing-detail">
-        <strong>of collections (bundled with RCM)</strong><br>
-        Includes full billing + AI glasses. No separate SaaS fee.
+        <strong>of collections</strong><br>
+        No setup fees. No minimums. You only pay on what we collect.
       </div>
     </div>
     <div class="pricing-right">
@@ -472,8 +406,15 @@
     </div>
   </div>
 
-  <!-- PATENT -->
-  <div class="patent">US Patent 15/237,980 &nbsp;&nbsp;|&nbsp;&nbsp; HIPAA Compliant &nbsp;&nbsp;|&nbsp;&nbsp; SOC 2 Ready &nbsp;&nbsp;|&nbsp;&nbsp; Vuzix Blade 2 Hardware</div>
+  <!-- COMPLIANCE -->
+  <div class="compliance">
+    <span>HIPAA Compliant</span>
+    <span>SOC 1 & SOC 2</span>
+    <span>ISO 27001</span>
+    <span>ISO 9001</span>
+    <span>ISO 27701</span>
+    <span>BBB A+ Rated</span>
+  </div>
 
   <!-- FOOTER -->
   <div class="footer">
