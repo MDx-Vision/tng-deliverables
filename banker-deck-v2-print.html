@@ -503,76 +503,26 @@
     .highlight-box { background: #f5f5f5; }
   }
 </style>
-
-<style>
-  /* PRINT OVERRIDE — white background, dark text */
-  :root {
-    --black: #000000 !important;
-    --near-black: #ffffff !important;
-    --dark: #f5f5f5 !important;
-    --dark-2: #eeeeee !important;
-    --dark-3: #e0e0e0 !important;
-    --mid: #444444 !important;
-    --mid-2: #555555 !important;
-    --light: #666666 !important;
-    --lighter: #999999 !important;
-    --off-white: #333333 !important;
-    --white: #1a1a1a !important;
-    --accent: #96784a !important;
-    --accent-dim: rgba(150,120,74,0.12) !important;
-  }
-  body { background: #ffffff !important; color: #333333 !important; }
-  h1, h2, h3, h4, h5, h6 { color: #1a1a1a !important; }
-  h1 em, .slide-title em { color: #96784a !important; }
-  .cover, .slide { background: #ffffff !important; }
-  .cover h1 { color: #1a1a1a !important; }
-  .cover h1 em { color: #96784a !important; }
-  .cover-label, .slide-num { color: #999999 !important; }
-  .lead, p { color: #444444 !important; }
-  .stat-val, .number, .cover-stat .number { color: #1a1a1a !important; }
-  .stat-label, .unit, .cover-stat .unit { color: #666666 !important; }
-  .section-title { color: #1a1a1a !important; }
-  .tier-table, table { border-color: #dddddd !important; }
-  .tier-table th { color: #96784a !important; background: #f5f5f5 !important; border-color: #dddddd !important; }
-  .tier-table td { color: #333333 !important; background: #ffffff !important; border-color: #dddddd !important; }
-  .tier-table .col-label, .tier-table .row-label { color: #666666 !important; }
-  .col-label { color: #96784a !important; }
-  .col-text { color: #444444 !important; }
-  .hero-eyebrow, .slide-eyebrow { color: #96784a !important; }
-  .service-list li { color: #444444 !important; }
-  .footer, .page-footer { background: #f5f5f5 !important; color: #666666 !important; border-top: 1px solid #dddddd !important; }
-  .footer strong, .page-footer strong { color: #333333 !important; }
-  .compliance-bar, .compliance { color: #888888 !important; border-top: 1px solid #dddddd !important; }
-  .header { border-bottom: 1px solid #dddddd !important; }
-  .header-label { color: #333333 !important; }
-  .header-label span { color: #888888 !important; }
-  .header-mdx { color: #1a1a1a !important; }
-  .pricing, .pricing-box { background: #f5f5f5 !important; border: 1px solid #dddddd !important; }
-  .pricing-val { color: #1a1a1a !important; }
-  .pricing-label, .pricing-detail { color: #555555 !important; }
-  .cta-label { color: #96784a !important; }
-  .cta-detail { color: #666666 !important; }
-  .three-col > div { border: 1px solid #eeeeee !important; }
-  .team-card { background: #f8f8f8 !important; border: 1px solid #e0e0e0 !important; }
-  .team-initials { background: #96784a !important; color: #ffffff !important; }
-  .team-name { color: #1a1a1a !important; }
-  .team-role { color: #555555 !important; }
-  .slide-title { color: #1a1a1a !important; }
-  .slide-body { color: #333333 !important; }
-  .how-step { background: #f8f8f8 !important; }
-  .how-step .step-num { color: #96784a !important; }
-  .how-step .step-title { color: #1a1a1a !important; }
-  .how-step .step-text { color: #555555 !important; }
-  .closing { background: #f5f5f5 !important; }
-  .closing h1 { color: #1a1a1a !important; }
-  .closing .lead { color: #555555 !important; }
-  .closing-contact { color: #333333 !important; }
-  .stats { border-top: 1px solid #dddddd !important; border-bottom: 1px solid #dddddd !important; }
-  .two-col > div { border: 1px solid #eeeeee !important; }
-  .col-eyebrow { color: #96784a !important; }
-  ul li { color: #444444 !important; }
-  .swipe-hint { color: #aaaaaa !important; }
-  a { color: #96784a !important; }
+<style id="print-override">
+/* ═══ PRINT LIGHT THEME ═══ */
+:root {
+  --black: #000 !important;
+  --near-black: #fff !important;
+  --dark: #f5f5f5 !important;
+  --dark-2: #eee !important;
+  --dark-3: #ddd !important;
+  --mid: #444 !important;
+  --mid-2: #555 !important;
+  --light: #666 !important;
+  --lighter: #555 !important;
+  --off-white: #333 !important;
+  --white: #1a1a1a !important;
+  --accent: #96784a !important;
+  --accent-dim: rgba(150,120,74,0.1) !important;
+}
+body { background: #fff !important; }
+* { border-color: #ddd !important; }
+.cover-logo, .page-nav img, .page-footer img { filter: none !important; opacity: 1 !important; }
 </style>
 </head>
 <body>
