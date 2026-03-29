@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDx Vision — Onboarding Questionnaire</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #09090b;
+    color: #a1a1aa;
+    line-height: 1.7;
+    font-size: 14.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+  /* ─── COVER ─── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+  }
+
+  .cover-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #52525b;
+    margin-bottom: 48px;
+  }
+
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 300;
+    color: #fafafa;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .cover h1 em {
+    font-style: normal;
+    color: #c8a97e;
+  }
+
+  .cover-sub {
+    font-size: 16px;
+    color: #71717a;
+    font-weight: 400;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 64px;
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid #27272a;
+    max-width: 400px;
+  }
+
+  .cover-meta dt {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #52525b;
+    padding: 16px 0 4px;
+  }
+
+  .cover-meta dd {
+    font-size: 14px;
+    color: #d4d4d8;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #27272a;
+  }
+
+  .cover-meta dd.gold { color: #c8a97e; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #27272a;
+    margin: 80px 0;
+  }
+
+  /* ─── SECTION ─── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c8a97e;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #27272a;
+  }
+
+  /* ─── QUESTION ─── */
+  .q {
+    margin-bottom: 56px;
+  }
+
+  .q-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #52525b;
+    margin-bottom: 8px;
+  }
+
+  .q-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e4e4e7;
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  .q-answer {
+    color: #a1a1aa;
+    line-height: 1.8;
+  }
+
+  .q-answer p { margin-bottom: 14px; }
+
+  .q-answer strong {
+    color: #d4d4d8;
+    font-weight: 600;
+  }
+
+  .q-answer ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+
+  .q-answer ul li {
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .q-answer ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4px;
+    background: #52525b;
+    border-radius: 50%;
+  }
+
+  .q-answer ol {
+    list-style: none;
+    counter-reset: ol;
+    padding: 0;
+    margin: 12px 0;
+  }
+
+  .q-answer ol > li {
+    counter-increment: ol;
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  .q-answer ol > li::before {
+    content: counter(ol);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #52525b;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Nested ul inside ol */
+  .q-answer ol ul { margin: 8px 0 0; }
+
+  /* ─── TABLES ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #52525b;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #27272a;
+  }
+
+  td {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(39, 39, 42, 0.5);
+    color: #a1a1aa;
+    vertical-align: top;
+  }
+
+  td:first-child { color: #d4d4d8; font-weight: 500; }
+
+  td + td, th + th { padding-left: 20px; }
+
+  tr:last-child td { border-bottom: none; }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    border-left: 2px solid #27272a;
+    padding: 16px 0 16px 20px;
+    margin: 20px 0;
+    font-size: 13.5px;
+    color: #a1a1aa;
+  }
+
+  .callout strong { color: #d4d4d8; }
+
+  .callout.gold { border-color: #c8a97e; }
+  .callout.gold strong { color: #c8a97e; }
+
+  .callout.red { border-color: #ef4444; }
+  .callout.red strong { color: #ef4444; }
+
+  /* ─── STAT ROW ─── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid #27272a;
+    border-bottom: 1px solid #27272a;
+    margin: 24px 0;
+  }
+
+  .stat {
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .stat:not(:last-child) { border-right: 1px solid #27272a; }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 300;
+    color: #fafafa;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-num .gold { color: #c8a97e; }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #52525b;
+  }
+
+  /* ─── TAG ─── */
+  .tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border: 1px solid #27272a;
+    border-radius: 2px;
+    color: #71717a;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .tag.novel { border-color: rgba(200,169,126,0.3); color: #c8a97e; }
+  .tag.rd { border-color: rgba(113,113,122,0.3); color: #71717a; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 64px 0 80px;
+    border-top: 1px solid #27272a;
+    margin-top: 40px;
+  }
+
+  .footer-name {
+    font-size: 14px;
+    color: #d4d4d8;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .footer-contact {
+    font-size: 13px;
+    color: #52525b;
+  }
+
+  .footer-conf {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3f3f46;
+    margin-top: 32px;
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: #fff; color: #374151; font-size: 11pt; }
+    .page { max-width: 100%; }
+    .cover { min-height: auto; padding: 40px 0; }
+    .cover h1 { color: #111; }
+    .cover h1 em { color: #92400e; }
+    .q-title { color: #111; }
+    td, .q-answer, .q-answer p, .q-answer li { color: #374151; }
+    td:first-child, strong { color: #111; }
+    th { color: #6b7280; border-color: #d1d5db; }
+    td { border-color: #e5e7eb; }
+    .divider, .stats, .cover-meta { border-color: #d1d5db; }
+    .stat:not(:last-child) { border-color: #d1d5db; }
+    .stat-num { color: #111; }
+    .section-label { color: #92400e; border-color: #d1d5db; }
+    .callout { border-color: #d1d5db; }
+    .callout.gold { border-color: #c8a97e; }
+    .cover-meta dd { border-color: #d1d5db; color: #111; }
+    .q { break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 0 20px; }
+    .cover h1 { font-size: 28px; }
+    .stats { grid-template-columns: 1fr; }
+    .stat:not(:last-child) { border-right: none; border-bottom: 1px solid #27272a; }
+    .cover-meta { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══ COVER ═══ -->
+<div class="cover">
+  <div class="cover-label">MDx Vision &mdash; NICEHR Group LLC</div>
+
+  <h1>We are building the first<br>clinical documentation system<br>with <em>health equity intelligence.</em></h1>
+
+  <p class="cover-sub">No EHR has it. No AI scribe has it. No one has attempted it. We hold the patent, we have the clinical site, and we are seeking R&D funding to prove it works.</p>
+
+  <dl class="cover-meta">
+    <dt>Prepared for</dt>
+    <dd>E.B. Howard Consulting</dd>
+    <dt>Package</dt>
+    <dd class="gold">Visionary Path &mdash; 24 months</dd>
+    <dt>Contact</dt>
+    <dd>Rafael Rodriguez, CEO</dd>
+    <dt>Date</dt>
+    <dd>March 26, 2026</dd>
+  </dl>
+</div>
+
+<!-- ═══ THE NUMBERS ═══ -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num"><span class="gold">$0</span></div>
+    <div class="stat-label">Revenue (R&D Stage)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Competitors with Health Equity</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num"><span class="gold">$25B+</span></div>
+    <div class="stat-label">Market Validation (Peer Valuations)</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ SECTION I ═══ -->
+<div class="section-label">I &mdash; Business Operations</div>
+
+<div class="q">
+  <div class="q-num">01</div>
+  <div class="q-title">60-Second Elevator Pitch</div>
+  <div class="q-answer">
+    <p>MDx Vision is developing voice-activated AR smart glasses for clinical documentation. Physicians wear the glasses, speak naturally, and an AI assistant handles the rest&mdash;notes, drug checks, billing codes, and health equity alerts&mdash;hands-free, directly into the EHR.</p>
+    <p>We are the only company pursuing the intersection of AR wearables and health equity intelligence. We have a patent pending on the core concept (US Application 15/237,980). No existing product&mdash;not Nuance, not Abridge, not any EHR&mdash;includes any health equity capability.</p>
+    <p>We are not raising money to sell. We are seeking R&D funding to research, build, and validate the technology.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">02</div>
+  <div class="q-title">Business Plan / Pitch Deck</div>
+  <div class="q-answer">
+    <p>Attached separately: concept overview, US Patent Application 15/237,980 documentation, and preliminary research plan with hypotheses and milestone framework.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">03</div>
+  <div class="q-title">Funding Opportunities of Interest</div>
+  <div class="q-answer">
+    <p><strong>Primary:</strong></p>
+    <ul>
+      <li>NIH SBIR/STTR Phase I &amp; II &mdash; health equity AI, ambient clinical intelligence, clinical NLP</li>
+      <li>NIH NIMHD &mdash; health disparities technology, innovations for healthy living</li>
+      <li>NIH NLM &mdash; clinical NLP, biomedical informatics</li>
+      <li>NSF SBIR &mdash; AR/XR, NLP, human-computer interaction, wearable computing</li>
+      <li>AHRQ &mdash; patient safety, health equity, clinical decision support R&D</li>
+      <li>ONC &mdash; FHIR interoperability R&D</li>
+      <li>VA Innovation, DOD medical technology, CMS Innovation Center</li>
+      <li>New York State &mdash; NYSTAR, ESD, Empire State Digital</li>
+      <li>Private foundations &mdash; health equity, physician wellness</li>
+      <li>University partnerships for STTR collaborations</li>
+    </ul>
+    <p><strong>Also:</strong> R&D tax credits, accelerators, corporate R&D programs.</p>
+    <p><strong>Avoid:</strong> Equity funding (separate track). Commercialization-only programs.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">04</div>
+  <div class="q-title">Previously Identified Funding</div>
+  <div class="q-answer">
+    <ul>
+      <li><strong>SBIR/STTR:</strong> Aware NIH and NSF are relevant. No specific FOAs identified. NIH NOFOs currently suspended (NOT-OD-26-006).</li>
+      <li><strong>NIMHD RFA-MD-24-006:</strong> &ldquo;Innovations for Healthy Living&rdquo; &mdash; explicitly supports technologies arising from existing concepts redesigned for health disparity populations. Prior cycle closed.</li>
+      <li><strong>R&D Tax Credit:</strong> Plan to file. No specialist engaged yet.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">05</div>
+  <div class="q-title">&ldquo;We are seeking funding to support...&rdquo;</div>
+  <div class="q-answer">
+    <p><strong>The research and development of a patent-protected AR clinical documentation platform with an integrated health equity intelligence engine.</strong></p>
+    <ol>
+      <li><strong>Clinical NLP R&D.</strong> Noise-robust speech recognition for hospital environments&mdash;ORs, ERs, multi-speaker settings. Can we achieve &gt;95% clinical term accuracy on a wearable form factor in these conditions? Unknown.</li>
+      <li><strong>Health Equity Algorithm R&D.</strong> <span class="tag novel">Novel</span> An AI engine that cross-references patient demographics against clinical disparity data to surface real-time alerts. Pulse oximetry bias (Sjoding, NEJM 2020). Maternal mortality (3-4x, CDC). Implicit bias in documentation. No one has built this.</li>
+      <li><strong>AR Human Factors R&D.</strong> Optimal HUD design for extended clinical use&mdash;information density, lighting variance, cognitive load. No published research exists.</li>
+      <li><strong>FHIR Interoperability R&D.</strong> Bidirectional EHR integration on a wearable&mdash;latency, PHI security, cross-vendor compatibility. Unsolved.</li>
+      <li><strong>Clinical Validation Study Design.</strong> Methodology to measure whether AR + health equity alerts improve outcomes vs. ambient-only scribes.</li>
+    </ol>
+    <div class="callout gold"><strong>Every item above involves genuine technical uncertainty.</strong> These are hypothesis-driven research questions, not feature requests.</div>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">06</div>
+  <div class="q-title">Location</div>
+  <div class="q-answer">
+    <p>Brooklyn, New York. NICEHR Group LLC, registered in New York State. Research deployment planned at NYC hospitals and community health centers serving diverse populations.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">07</div>
+  <div class="q-title">Industry</div>
+  <div class="q-answer">
+    <p>Health-Tech / Med-Tech (clinical documentation AI, R&D stage). Secondary: AR/XR technology, health equity technology, biomedical informatics.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">08</div>
+  <div class="q-title">Ownership</div>
+  <div class="q-answer">
+    <p><strong>Minority-owned.</strong> Hispanic/Latino founder. No formal MBE certification yet&mdash;eligible and intending to pursue.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">09</div>
+  <div class="q-title">Customers</div>
+  <div class="q-answer">
+    <p>Zero. R&D stage&mdash;product not yet developed.</p>
+    <p>One IPA has expressed interest in serving as a clinical research site: Dr. Rizwan Hameed&rsquo;s IPA, 300,000 patient lives, ~100 physicians, Brooklyn. Letters of support available from Dr. Hameed&rsquo;s IPA and HRC Technology Solutions (1,800 employees, RCM partner).</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">10</div>
+  <div class="q-title">Revenue Model</div>
+  <div class="q-answer">
+    <p>Theoretical. R&D must first demonstrate feasibility.</p>
+    <table>
+      <tr><th>Stream</th><th>Model</th><th>Projected</th></tr>
+      <tr><td>SaaS</td><td>Per-physician/month</td><td>$999&ndash;$1,899</td></tr>
+      <tr><td>MSO Bundling</td><td>% of collections</td><td>4&ndash;5%</td></tr>
+      <tr><td>Implementation</td><td>One-time</td><td>$2,500&ndash;$10,000</td></tr>
+    </table>
+    <p>Current revenue: $0. Current burn: ~$3&ndash;5K/month, self-funded.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">11</div>
+  <div class="q-title">Target Market</div>
+  <div class="q-answer">
+    <p><strong>Post-R&D buyers:</strong> IPA leadership, MSO executives, hospital CMIOs. End users: physicians, nurses, ER clinicians. Pain: 2+ hours/day documentation burden, burnout, coding leakage, health equity compliance gaps.</p>
+    <div class="callout gold"><strong>For R&D:</strong> Community health centers and IPA practices in Brooklyn serving racially and ethnically diverse populations. Ideal for health equity algorithm validation across demographics.</div>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">12</div>
+  <div class="q-title">Competitive Landscape</div>
+  <div class="q-answer">
+    <table>
+      <tr><th>Company</th><th>Valuation</th><th>AR</th><th>Health Equity</th></tr>
+      <tr><td>Nuance / Microsoft</td><td>$19.7B acquired</td><td>No</td><td>No</td></tr>
+      <tr><td>Abridge</td><td>$5.3B</td><td>No</td><td>No</td></tr>
+      <tr><td>Ambience</td><td>$1.25B</td><td>No</td><td>No</td></tr>
+      <tr><td>Suki AI</td><td>~$500M</td><td>No</td><td>No</td></tr>
+    </table>
+    <p>$25B+ in combined valuations prove demand for clinical documentation AI. Zero products address AR. Zero address health equity. Zero EHRs include health equity alerting. The intersection is unoccupied.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">13</div>
+  <div class="q-title">Risks</div>
+  <div class="q-answer">
+    <table>
+      <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+      <tr><td>NLP accuracy in noisy hospitals</td><td>High</td><td>Acoustic testing, custom noise reduction, go/no-go thresholds</td></tr>
+      <tr><td>Health equity algorithm validation</td><td>High</td><td>Diverse population study, disparities research partners</td></tr>
+      <tr><td>AR cognitive load</td><td>Medium</td><td>Human factors study, validated instruments</td></tr>
+      <tr><td>Physician AR adoption</td><td>Medium</td><td>Formative usability study, iterative design</td></tr>
+      <tr><td>FHIR cross-vendor gaps</td><td>Medium</td><td>Systematic sandbox testing</td></tr>
+      <tr><td>HIPAA on wearables</td><td>Medium</td><td>Encryption and auth architecture R&D</td></tr>
+    </table>
+    <div class="callout red"><strong>These are genuine technical unknowns with uncertain outcomes.</strong> This is what SBIR exists to fund.</div>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">14</div>
+  <div class="q-title">Contracts</div>
+  <div class="q-answer">
+    <ul>
+      <li><strong>US Application 15/237,980</strong> &mdash; Patent pending. Filed and owned entirely by the company.</li>
+      <li><strong>Two additional patents pending</strong> &mdash; ARIM (AR Interpolation Model), AOP (47 claims, autonomous clinical AI).</li>
+      <li><strong>HRC Technology Solutions</strong> &mdash; Informal relationship. Commercialization partner post-R&D. Letter of support available.</li>
+      <li><strong>Dr. Hameed&rsquo;s IPA</strong> &mdash; Research site interest. Letter of support available.</li>
+    </ul>
+    <p>No vendor or customer contracts. R&D stage.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">15</div>
+  <div class="q-title">Strategic Partnerships</div>
+  <div class="q-answer">
+    <ul>
+      <li><strong>Sandy Paar</strong> &mdash; Advisor. 25 years practice management. Clinical site recruitment.</li>
+      <li><strong>Dr. Rizwan Hameed, MD</strong> &mdash; IPA Chairman. 300K patient lives. Potential research site PI.</li>
+      <li><strong>Riasat Ali, MD</strong> &mdash; Clinical advisor. CMIO-level guidance on workflow and study design.</li>
+    </ul>
+    <p>Seeking STTR academic partner: CUNY, NYU, Columbia, SUNY Downstate, or Mount Sinai.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">16</div>
+  <div class="q-title">Keywords</div>
+  <div class="q-answer">
+    <p>AR glasses, clinical documentation, ambient clinical intelligence, health equity, health disparities, physician burnout, voice-activated, FHIR R4, clinical NLP, clinical decision support, pulse oximetry bias, maternal mortality disparity, implicit bias, SDOH, patient safety, noise-robust speech recognition, human factors, cognitive load, wearable medical device</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ SECTION II ═══ -->
+<div class="section-label">II &mdash; Product and Technology</div>
+
+<div class="q">
+  <div class="q-num">17</div>
+  <div class="q-title">Stage</div>
+  <div class="q-answer">
+    <p><strong>Concept / Early R&D / Pre-Seed.</strong></p>
+    <p>Patent pending. Architecture designed. Early prototyping underway. No production system exists. Clinical research site identified. $300K+ self-funded to date. Seeking non-dilutive R&D funding.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">18</div>
+  <div class="q-title">Status</div>
+  <div class="q-answer">
+    <p><strong>Pre-launch. R&D stage.</strong></p>
+    <ul>
+      <li>Patent pending &mdash; core IP filed</li>
+      <li>Two additional patents filed</li>
+      <li>Technical architecture designed, candidate technologies evaluated</li>
+      <li>Clinical research site identified (Brooklyn, diverse demographics)</li>
+      <li>Advisory team assembled (CMIO, practice management, IPA chairman)</li>
+      <li>Health equity literature reviewed (Sjoding 2020, CDC, Joint Commission)</li>
+      <li>Competitive gap confirmed &mdash; no product addresses AR + health equity</li>
+    </ul>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">19</div>
+  <div class="q-title">Problem</div>
+  <div class="q-answer">
+    <p>Physicians spend 2+ hours daily on documentation. It is the leading cause of burnout. One in five doctors leave medicine because of it.</p>
+    <p>But the deeper problem is health equity.</p>
+    <div class="callout gold">
+      <strong>No EHR, no AI scribe, no clinical documentation tool includes any capability to detect or mitigate health disparities during the documentation process.</strong>
+    </div>
+    <ul>
+      <li>Pulse oximeters overestimate O&#8322; by 3.56% in Black patients (Sjoding, NEJM 2020)</li>
+      <li>Black women face 3&ndash;4x higher maternal mortality (CDC)</li>
+      <li>Implicit bias in documentation correlates with disparate outcomes (FitzGerald &amp; Hurst, BMC Medical Ethics 2017)</li>
+      <li>CMS and Joint Commission mandate health equity reporting. Clinicians have zero tools.</li>
+    </ul>
+    <p>We propose to solve both: AR glasses that eliminate the keyboard, and an AI engine that surfaces disparity alerts in real time. No one has attempted this.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">20</div>
+  <div class="q-title">Technology</div>
+  <div class="q-answer">
+    <ul>
+      <li><span class="tag rd">R&D</span> <strong>Clinical NLP</strong> &mdash; Noise-robust speech recognition for clinical environments. Existing ASR degrades in hospitals.</li>
+      <li><span class="tag novel">Novel</span> <strong>Health Equity Engine</strong> &mdash; No existing solution. Requires: disparities knowledge base, alert algorithms, population validation, clinician behavior measurement.</li>
+      <li><span class="tag rd">R&D</span> <strong>AR Clinical HUD</strong> &mdash; No published human factors research for AR in clinical documentation.</li>
+      <li><span class="tag rd">R&D</span> <strong>FHIR on Wearables</strong> &mdash; Bidirectional EHR from AR glasses. Unsolved.</li>
+      <li><span class="tag rd">R&D</span> <strong>Ambient Multi-Intent</strong> &mdash; Simultaneous notes + drug checks + equity alerts on constrained hardware.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">21</div>
+  <div class="q-title">Technology Stack</div>
+  <div class="q-answer">
+    <p>Proposed. Not yet built.</p>
+    <table>
+      <tr><th>Layer</th><th>Candidate</th><th>Status</th></tr>
+      <tr><td>AR Hardware</td><td>Vuzix Blade 2, INMO Air3</td><td>Evaluating</td></tr>
+      <tr><td>Backend</td><td>Python / FastAPI</td><td>Designed</td></tr>
+      <tr><td>NLP</td><td>AssemblyAI + custom noise reduction</td><td>Unproven</td></tr>
+      <tr><td>Clinical AI</td><td>Anthropic Claude + RAG</td><td>Conceptual</td></tr>
+      <tr><td>Health Equity</td><td>Novel</td><td>Ground-up R&D</td></tr>
+      <tr><td>EHR</td><td>FHIR R4</td><td>Sandbox only</td></tr>
+      <tr><td>Security</td><td>AES-256, voiceprint</td><td>Designed</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">22</div>
+  <div class="q-title">Intellectual Property</div>
+  <div class="q-answer">
+    <table>
+      <tr><th>Asset</th><th>Type</th><th>Status</th></tr>
+      <tr><td>US 15/237,980</td><td>Utility Patent</td><td>Pending</td></tr>
+      <tr><td>A.R.I.M.</td><td>Utility Patent</td><td>Pending</td></tr>
+      <tr><td>AOP (47 claims)</td><td>Utility Patent</td><td>Pending</td></tr>
+    </table>
+    <p>The patent application establishes prior art and IP positioning. The SBIR funds the R&D to realize the concept.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">23</div>
+  <div class="q-title">Differentiators</div>
+  <div class="q-answer">
+    <ol>
+      <li><strong>Only system proposed with AR glasses for clinical documentation.</strong> Every competitor uses a phone or tablet.</li>
+      <li><strong>Only system proposed with health equity intelligence.</strong> No EHR, no scribe, no tool. We would be first.</li>
+      <li><strong>Patent pending.</strong> Three filings covering the core intersection.</li>
+      <li><strong>Research-grounded.</strong> Built on published evidence: Sjoding (NEJM), CDC, FitzGerald &amp; Hurst (BMC).</li>
+      <li><strong>Diverse validation population.</strong> Brooklyn IPA, 300K lives, among the most diverse in the US.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">24</div>
+  <div class="q-title">R&D Roadmap</div>
+  <div class="q-answer">
+    <p>Hypothesis-driven. Not a feature list.</p>
+    <ol>
+      <li><strong>Phase I &mdash; Feasibility (Months 1&ndash;12)</strong>
+        <ul>
+          <li>H1: NLP achieves &gt;95% accuracy in noisy hospitals on AR wearable</li>
+          <li>H2: AR HUD does not increase cognitive load (validated instruments)</li>
+          <li>H3: Health equity alerts achieve &gt;70% clinician acceptance without fatigue</li>
+          <li>Go/no-go at Month 12</li>
+        </ul>
+      </li>
+      <li><strong>Phase II &mdash; Development &amp; Validation (Months 12&ndash;24)</strong>
+        <ul>
+          <li>Integrated prototype</li>
+          <li>IRB-approved clinical study at Dr. Hameed&rsquo;s IPA</li>
+          <li>Measure: time, accuracy, equity compliance, satisfaction</li>
+          <li>Peer-reviewed publication</li>
+        </ul>
+      </li>
+      <li><strong>Phase III &mdash; Commercialization (24+ months)</strong> &mdash; No SBIR funding requested.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">25</div>
+  <div class="q-title">Traction</div>
+  <div class="q-answer">
+    <ul>
+      <li>US Patent Application filed (15/237,980)</li>
+      <li>Two additional patents pending (ARIM, AOP &mdash; 47 claims)</li>
+      <li>Clinical research site identified (300K lives, diverse)</li>
+      <li>Advisory team: CMIO, 25-year healthcare veteran, IPA chairman</li>
+      <li>RCM partner interest (HRC, 1,800 employees) for post-R&D commercialization</li>
+      <li>$300K+ self-funded &mdash; founder commitment</li>
+      <li>Health equity whitespace confirmed across every major EHR</li>
+      <li>Seeking STTR academic partner</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ SECTION III ═══ -->
+<div class="section-label">III &mdash; Funding Preferences</div>
+
+<div class="q">
+  <div class="q-num">26</div>
+  <div class="q-title">Preferred Types</div>
+  <div class="q-answer">
+    <ul>
+      <li>NIH SBIR/STTR Phase I &amp; II &mdash; health equity AI, clinical NLP, AR human factors</li>
+      <li>NIH NIMHD &mdash; health disparities technology (strongest alignment)</li>
+      <li>NSF SBIR &mdash; AR/XR, NLP, HCI</li>
+      <li>AHRQ, ONC, VA, DOD R&D programs</li>
+      <li>New York State grants, private foundations, accelerators</li>
+      <li>R&D tax credits, university partnerships, corporate R&D programs</li>
+    </ul>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">27</div>
+  <div class="q-title">Timeline</div>
+  <div class="q-answer">
+    <table>
+      <tr><th>When</th><th>Milestone</th><th>Funding Need</th></tr>
+      <tr><td>Q2&ndash;Q3 2026</td><td>Phase I feasibility launch</td><td>NLP testing, AR hardware, IRB</td></tr>
+      <tr><td>Q3&ndash;Q4 2026</td><td>NLP benchmarking</td><td>Research personnel, clinical site</td></tr>
+      <tr><td>Q4 2026</td><td>Health equity algorithm design</td><td>Algorithm dev, disparities KB</td></tr>
+      <tr><td>Q1 2027</td><td>AR human factors study</td><td>Study design, measurement</td></tr>
+      <tr><td>Q2 2027</td><td>Go/no-go</td><td>Analysis, documentation</td></tr>
+      <tr><td>Q3 2027+</td><td>Phase II prototype &amp; clinical study</td><td>Engineering, IRB costs</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">28</div>
+  <div class="q-title">Geography</div>
+  <div class="q-answer">
+    <p>Primary: United States. State focus: New York (Brooklyn HQ, NYC research sites). Seeking university partners: CUNY, NYU, Columbia, SUNY Downstate, Mount Sinai. Open to international health equity research collaboration.</p>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">29</div>
+  <div class="q-title">Parameters</div>
+  <div class="q-answer">
+    <ul>
+      <li><strong>Phase I:</strong> $150K&ndash;$315K</li>
+      <li><strong>Phase II:</strong> $1M&ndash;$2M</li>
+      <li><strong>Mobilization:</strong> 6&ndash;8 weeks to full proposal once FOA identified</li>
+      <li><strong>Matching:</strong> Up to ~$50K from self-funding</li>
+      <li><strong>IP:</strong> Must retain full ownership. No government transfer or exclusive licensing.</li>
+      <li><strong>NIH timing:</strong> Aware of NOFO suspension. Need guidance on reopening.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="q">
+  <div class="q-num">30</div>
+  <div class="q-title">Why We Are a Strong SBIR Candidate</div>
+  <div class="q-answer">
+    <ol>
+      <li><strong>Genuine technical risk.</strong> Can NLP work in noisy hospitals on a wearable? Can health equity algorithms reduce disparities without alert fatigue? Can AR support clinical workflows without cognitive overhead? These are scientific questions. The answers are unknown.</li>
+      <li><strong>Health equity is a federal priority.</strong> NIH, AHRQ, CMS are all directing funding here. We would build the first health equity engine in clinical AI. Zero competition.</li>
+      <li><strong>Minority-owned.</strong> Hispanic/Latino founder building technology for health disparity communities.</li>
+      <li><strong>Patent pending.</strong> Three filings demonstrate prior invention and IP commitment.</li>
+      <li><strong>Research site ready.</strong> Brooklyn IPA. 300,000 patient lives. Among the most diverse populations in the country.</li>
+      <li><strong>Credible team.</strong> CMIO. IPA chairman. 25-year healthcare veteran. Patent-holding technical founder.</li>
+      <li><strong>Commercial viability post-R&D.</strong> $25B+ in competitor valuations. Patent-protected whitespace. 97%+ projected margins.</li>
+      <li><strong>STTR-ready.</strong> Actively seeking academic partner.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="footer-name">Rafael Rodriguez</div>
+  <div class="footer-contact">CEO &amp; Founder &nbsp;&middot;&nbsp; rafael@mdx.vision &nbsp;&middot;&nbsp; mdx.vision</div>
+  <div class="footer-conf">Confidential &mdash; Prepared for E.B. Howard Consulting</div>
+</div>
+
+</div>
+</body>
+</html>

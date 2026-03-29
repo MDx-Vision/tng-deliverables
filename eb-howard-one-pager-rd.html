@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDx Vision — One-Page Business Plan (R&D)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #09090b;
+    color: #a1a1aa;
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 720px; margin: 0 auto; padding: 64px 32px 80px; }
+
+  .label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #52525b;
+    margin-bottom: 48px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 300;
+    color: #fafafa;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  h1 em { font-style: normal; color: #c8a97e; }
+  .subtitle {
+    font-size: 15px;
+    color: #52525b;
+    margin-bottom: 56px;
+  }
+
+  .divider { height: 1px; background: #27272a; margin: 40px 0; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c8a97e;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e4e4e7;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+  }
+
+  p { margin-bottom: 14px; color: #a1a1aa; }
+  strong { color: #d4d4d8; font-weight: 600; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 16px;
+  }
+  ul li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 4px; height: 4px;
+    background: #52525b;
+    border-radius: 50%;
+  }
+
+  /* Stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #27272a;
+    border-bottom: 1px solid #27272a;
+    margin: 32px 0;
+  }
+  .stat {
+    padding: 20px 0;
+    text-align: center;
+  }
+  .stat:not(:last-child) { border-right: 1px solid #27272a; }
+  .stat-num {
+    font-size: 22px;
+    font-weight: 300;
+    color: #fafafa;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num .gold { color: #c8a97e; }
+  .stat-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #52525b;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  th {
+    text-align: left;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #52525b;
+    padding: 0 0 8px;
+    border-bottom: 1px solid #27272a;
+  }
+  td {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(39,39,42,0.5);
+    color: #a1a1aa;
+    vertical-align: top;
+  }
+  td:first-child { color: #d4d4d8; font-weight: 500; }
+  td + td, th + th { padding-left: 16px; }
+  tr:last-child td { border-bottom: none; }
+
+  /* Callout */
+  .callout {
+    border-left: 2px solid #c8a97e;
+    padding: 14px 0 14px 18px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #a1a1aa;
+  }
+  .callout strong { color: #c8a97e; }
+
+  /* Two-col grid */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  /* Footer */
+  .footer {
+    padding-top: 40px;
+    border-top: 1px solid #27272a;
+    margin-top: 48px;
+  }
+  .footer-name { font-size: 13px; color: #d4d4d8; font-weight: 500; }
+  .footer-contact { font-size: 12px; color: #52525b; margin-top: 2px; }
+  .footer-conf {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3f3f46;
+    margin-top: 24px;
+  }
+
+  @media print {
+    body { background: #fff; color: #374151; }
+    .page { padding: 20px 0; }
+    h1 { color: #111; } h1 em { color: #92400e; }
+    h2 { color: #111; }
+    p, td, li { color: #374151; }
+    td:first-child, strong { color: #111; }
+    th { color: #6b7280; border-color: #d1d5db; }
+    td { border-color: #e5e7eb; }
+    .stat-num { color: #111; }
+    .divider, .stats, .stat:not(:last-child) { border-color: #d1d5db; }
+    .callout { border-color: #c8a97e; }
+    .footer { border-color: #d1d5db; }
+    .section-label { color: #92400e; }
+  }
+  @media (max-width: 600px) {
+    .page { padding: 40px 20px; }
+    h1 { font-size: 26px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .grid-2 { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="label">MDx Vision &mdash; One-Page Business Plan</div>
+
+  <h1>AR clinical documentation<br>with <em>health equity intelligence.</em></h1>
+  <div class="subtitle">R&D stage &nbsp;&middot;&nbsp; Patent pending (US 15/237,980) &nbsp;&middot;&nbsp; Brooklyn, NY</div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num"><span class="gold">3</span></div>
+      <div class="stat-label">Patents Pending</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Competitors w/ Equity</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="gold">300K</span></div>
+      <div class="stat-label">Patient Lives (Site)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$25B+</div>
+      <div class="stat-label">Market Validation</div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="section-label">The Problem</div>
+  <p>Physicians spend 2+ hours daily on documentation&mdash;the #1 cause of burnout. One in five leave medicine. Coding errors leak ~10% of revenue. And <strong>no EHR, no AI scribe, no clinical tool addresses health disparities during documentation</strong>&mdash;despite CMS and Joint Commission mandates.</p>
+
+  <div class="divider"></div>
+
+  <!-- SOLUTION -->
+  <div class="section-label">The Solution</div>
+  <p>Voice-activated AR smart glasses with an integrated health equity engine. Physicians wear lightweight glasses, speak naturally, and AI handles notes, drug checks, billing codes, and real-time health equity alerts&mdash;hands-free, into the EHR via FHIR R4.</p>
+
+  <div class="divider"></div>
+
+  <!-- WHAT MAKES THIS NOVEL -->
+  <div class="section-label">What Makes This Novel</div>
+  <ul>
+    <li><strong>AR + Clinical Documentation:</strong> No product exists. Every competitor uses a phone or tablet.</li>
+    <li><strong>Health Equity Engine:</strong> No EHR and no AI scribe includes any equity capability. We propose the first&mdash;pulse ox bias detection, maternal mortality scoring, implicit bias alerts, culturally-adapted protocols.</li>
+    <li><strong>Patent Pending:</strong> US Application 15/237,980, plus ARIM and AOP (47 claims)&mdash;three filings covering the core concept.</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <!-- R&D PLAN -->
+  <div class="section-label">R&D Plan</div>
+  <table>
+    <tr><th>Phase</th><th>Timeline</th><th>Objective</th><th>Funding</th></tr>
+    <tr><td>Phase I</td><td>Months 1&ndash;12</td><td>Feasibility&mdash;NLP, AR human factors, equity algorithm design</td><td>$150K&ndash;$315K</td></tr>
+    <tr><td>Phase II</td><td>Months 12&ndash;24</td><td>Prototype + IRB clinical validation</td><td>$1M&ndash;$2M</td></tr>
+    <tr><td>Phase III</td><td>24+ months</td><td>Commercialization (no SBIR requested)</td><td>Equity / revenue</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <!-- MARKET -->
+  <div class="section-label">Market Validation</div>
+  <p>$25B+ in competitor valuations prove demand. None address AR. None address health equity.</p>
+  <table>
+    <tr><th>Company</th><th>Valuation</th><th>AR</th><th>Health Equity</th></tr>
+    <tr><td>Nuance / Microsoft</td><td>$19.7B acquired</td><td>No</td><td>No</td></tr>
+    <tr><td>Abridge</td><td>$5.3B</td><td>No</td><td>No</td></tr>
+    <tr><td>Ambience</td><td>$1.25B</td><td>No</td><td>No</td></tr>
+    <tr><td>Suki AI</td><td>~$500M</td><td>No</td><td>No</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <!-- REVENUE + TEAM side by side -->
+  <div class="grid-2">
+    <div>
+      <div class="section-label">Revenue Model (Post-R&D)</div>
+      <ul>
+        <li><strong>SaaS:</strong> $999&ndash;$1,899/physician/month</li>
+        <li><strong>MSO Bundling:</strong> 4&ndash;5% of collections</li>
+        <li><strong>COGS:</strong> ~$21/physician/month</li>
+        <li><strong>Margin:</strong> 97%+ at scale</li>
+      </ul>
+    </div>
+    <div>
+      <div class="section-label">Team</div>
+      <ul>
+        <li><strong>Rafael Rodriguez</strong>&mdash;CEO. Patent holder. $300K+ self-funded.</li>
+        <li><strong>Riasat Ali, MD</strong>&mdash;CMIO. Clinical advisor.</li>
+        <li><strong>Sandy Paar</strong>&mdash;Advisor. 25 years practice management.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RESEARCH SITE -->
+  <div class="section-label">Clinical Research Site</div>
+  <p>Dr. Rizwan Hameed&rsquo;s IPA&mdash;300,000 patient lives, ~100 physicians, Brooklyn. Among the most racially diverse patient populations in the US. Ideal for health equity algorithm validation.</p>
+
+  <div class="divider"></div>
+
+  <!-- THE ASK -->
+  <div class="section-label">The Ask</div>
+  <div class="callout">
+    <strong>Non-dilutive R&D funding to prove feasibility.</strong> Primary targets: NIH SBIR/STTR (NIMHD for health equity), NSF SBIR (AR/NLP), AHRQ, ONC. Seeking STTR academic partner (CUNY, NYU, Columbia, SUNY Downstate). Minority-owned&mdash;Hispanic/Latino founder.
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-name">Rafael Rodriguez</div>
+    <div class="footer-contact">CEO &amp; Founder &nbsp;&middot;&nbsp; rafael@mdx.vision &nbsp;&middot;&nbsp; mdx.vision &nbsp;&middot;&nbsp; Brooklyn, NY</div>
+    <div class="footer-conf">Confidential &mdash; MDx Vision (NICEHR Group LLC)</div>
+  </div>
+
+</div>
+</body>
+</html>
